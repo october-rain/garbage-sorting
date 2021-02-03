@@ -1,6 +1,5 @@
 {
   "pages": [
-    "pages/home/home",
     "pages/index/index"
   ],
   "window": {
@@ -11,7 +10,8 @@
     "navigationBarTextStyle": "white"
   },
   "usingComponents": {
-    "cu-custom": "/colorui/components/cu-custom"
+    "cu-tabbar": "/components/cu-tabbar/index",
+    "cu-drawer": "/components/cu-drawer/index"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

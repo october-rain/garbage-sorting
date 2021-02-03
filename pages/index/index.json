@@ -1,3 +1,8 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "home": "/pages/components/home/home",
+    "category": "/pages/components/category/category",
+    "game": "/pages/components/game/game",
+    "me": "/pages/components/me/me"
+  }
 }

@@ -1,26 +1,10 @@
-page {
+/* page {
   background-image: var(--gradualBlue);
   width: 100vw;
   overflow: hidden;
-}
+} */
 
-.DrawerPage {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  left: 0vw;
-  background-color: #f1f1f1;
-  transition: all 0.4s;
-}
 
-.DrawerPage.show {
-  transform: scale(0.9, 0.9);
-  left: 85vw;
-  box-shadow: 0 0 60rpx rgba(0, 0, 0, 0.2);
-  transform-origin: 0;
-}
-
-/* 
 .DrawerWindow {
   position: absolute;
   width: 85vw;
@@ -63,4 +47,4 @@ page {
   pointer-events: all;
   width: 15vw;
   color: #fff;
-} */
+}

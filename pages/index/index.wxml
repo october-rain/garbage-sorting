@@ -1,17 +1,41 @@
-<cu-custom bgColor="bg-gradual-blue">
-  <view slot="content">ColorUI 空白模板</view>
-</cu-custom>
-<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
-  <view class="flex justify-center">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
-    <block wx:else>
-      <view class='text-center'>
-        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
-        <view class="padding">{{userInfo.nickName}}</view>
+<scroll-view scroll-y class="scrollPage DrawerPage {{modalName=='viewModal'?'show':''}}">
+  <cu-tabbar bgColor="bg-gradual-pink" isMenu="{{true}}" bindchangeDrawer="changeDrawer">
+    <view slot="content">轮播图</view>
+  </cu-tabbar>
+
+  <home class="page" wx:if="{{PageCur == 'home'}}"></home>
+  <category class="page" wx:if="{{PageCur == 'category'}}"></category>
+  <game class="page" wx:if="{{PageCur == 'game'}}"></game>
+  <me class="page" wx:if="{{PageCur == 'me'}}"></me>
+
+  <!-- 下方tab栏 -->
+  <view class="cu-bar tabbar foot bg-white shadow">
+    <view class="action" bindtap="NavChange" data-cur="home">
+      <view class="cuIcon-homefill {{PageCur=='home'?'text-green':'text-gray'}}"></view>
+      <view class="{{PageCur=='home'?'text-green':'text-gray'}}">首页</view>
+    </view>
+    <view class="action" bindtap="NavChange" data-cur="category">
+      <view class="cuIcon-similar {{PageCur=='category'?'text-green':'text-gray'}}"></view>
+      <view class="{{PageCur=='category'?'text-green':'text-gray'}}">分类</view>
+    </view>
+    <view class="action text-gray add-action">
+      <button class="cu-btn cuIcon-add bg-blue shadow"></button>
+      识别
+    </view>
+    <view class="action" bindtap="NavChange" data-cur="game">
+      <view class="cuIcon-game {{PageCur=='game'?'text-green':'text-gray'}}">
+        <view class="cu-tag badge">99</view>
       </view>
-    </block>
+      <view class="{{PageCur=='game'?'text-green':'text-gray'}}">游戏</view>
+    </view>
+    <view class="action" bindtap="NavChange" data-cur="me">
+      <view class="cuIcon-my {{PageCur=='me'?'text-green':'text-gray'}}">
+        <view class="cu-tag badge"></view>
+      </view>
+      <view class="{{PageCur=='me'?'text-green':'text-gray'}}">我的</view>
+    </view>
   </view>
-</view>
-<view class="text-center margin-top">
-  <text class="text-grey text-xl">{{motto}}</text>
-</view>
+
+</scroll-view>
+
+<cu-drawer modalName='{{modalName}}' bindchangeDrawer="changeDrawer"></cu-drawer>

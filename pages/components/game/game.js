@@ -1,6 +1,8 @@
-// pages/home/home.js
-Page({
-
+// pages/game/game.js
+Component({
+  options: {
+    addGlobalClass: true,
+  },
   /**
    * 页面的初始数据
    */
