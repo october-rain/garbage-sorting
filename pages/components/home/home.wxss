@@ -1,0 +1,6 @@
+.last {
+  padding-bottom: 120rpx;
+}
+.cu-timeline > .cu-item > .content{
+  margin-right: 40rpx;
+}

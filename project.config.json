@@ -4,7 +4,7 @@
     "ignore": []
   },
   "setting": {
-    "urlCheck": false,
+    "urlCheck": true,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -64,29 +64,6 @@
           "name": "pages/index/index",
           "pathName": "pages/index/index",
           "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/home/home",
-          "pathName": "pages/home/home",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/me/me",
-          "pathName": "pages/me/me",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/category/category",
-          "pathName": "pages/category/category",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/game/game",
-          "pathName": "pages/game/game",
           "scene": null
         }
       ]

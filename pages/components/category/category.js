@@ -1,68 +1,55 @@
 // pages/category/category.js
+const sideBarData = [
+  'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'W', 'X', 'Y', 'Z'
+];
+
+const nameData = [
+  ['安冉', '艾浩宇'],
+  ['白昕玥', '包博坤'],
+  ['陈麟', '曹毛毛'],
+  ['邓波光', '董睿希'],
+  ['鄂卓烆', '洱惜文'],
+  ['冯月滢', '范源'],
+  ['郭若诗', '高薇竹'],
+  ['黄琪琪', '胡纩鸯'],
+  ['蒋馥蔓', '金倜厅'],
+  ['孔薇竹', '康艳霞'],
+  ['李舒旬', '刘笑'],
+  ['马亦', '孟熠彤'],
+  ['倪靓', '牛彗伶'],
+  ['欧玉兰', '欧阳漂泊'],
+  ['潘静', '皮文涛'],
+  ['钱卫国', '秦健容'],
+  ['任倩倩', '荣盈盈'],
+  ['孙桢', '沈业轩'],
+  ['陶小树', '唐子翊'],
+  ['吴洁立', '王紫耘'],
+  ['许子豪', '谢亚希'],
+  ['杨思远', '尤庭亮'],
+  ['赵容', '周承瑶']
+];
+
 Component({
   options: {
     addGlobalClass: true,
   },
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    nameData,
+    sideBarData,
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  methods: {
+    //滚动过程中触发
+    scroll(e) {
+      // console.log(e.detail.scrollTop)
+      this.setData({
+        scrollTop: e.detail.scrollTop
+      });
+    },
+    changeScrollTop(e){
+      // console.log(e)
+      this.setData({
+        toView: e.detail.scrollPageToLocation - 60
+      })
+    }
   }
 })

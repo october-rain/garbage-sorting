@@ -11,31 +11,27 @@ Component({
     swiperList: [{
       id: 0,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
+      url: '/image/swiper/man-woman-putting-garbage-containers-illustration-sorting-recycling-waste-concept.jpg'
     }, {
       id: 1,
         type: 'image',
-        url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
+        url: '/image/swiper/family-mother-father-son-face-masks-holding-happy-smiling-planet-earth.jpg',
     }, {
       id: 2,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
+      url: '/image/swiper/people-clean-park.jpg'
     }, {
       id: 3,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
+      url: '/image/swiper/people-urban-park-recycling-waste-illustration-man-woman-hold-placards-with-recycle-sign.jpg'
     }, {
       id: 4,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
+      url: '/image/swiper/smiling-people-putting-garbage-containers.jpg'
     }, {
       id: 5,
       type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
-    }, {
-      id: 6,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
+      url: '/image/swiper/reduce-reuse-recycle-banner-template-men-holding-waste-eco-friendly-lifestyle-concept.jpg'
     }],
     // modalName: 'viewModal'
   },
