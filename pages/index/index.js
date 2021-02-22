@@ -20,5 +20,8 @@ Page({
     this.setData({
       modalName: e.detail.modal
     })
+  },
+  recognizeGarbage(e){
+    
   }
 })

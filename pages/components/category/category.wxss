@@ -17,7 +17,7 @@ l-index-list{
   background-color: #cccccc !important;
 }
 
-.person-item{
+.garbage-item{
   display: flex;
   align-items: center;
   color: #1a1a1a;
@@ -27,14 +27,27 @@ l-index-list{
   padding-left: 30rpx;
 }
 
-.person-avatar{
-  width: 72rpx;
-  height: 72rpx;
-  border-radius: 10rpx;
+.garbage-name{
+  margin-left: 20rpx;
 }
 
-.person-name{
-  margin-left: 20rpx;
+.garbage-tag{
+  margin-left: 30rpx;
+  font-size: 22rpx;
+  border-radius: 8rpx;
+  padding: 5rpx 8rpx;
+}
+.garbage1 {
+  border: 1rpx solid red;
+}
+.garbage2 {
+  border: 1rpx solid blue;
+}
+.garbage3 {
+  border: 1rpx solid green;
+}
+.garbage4 {
+  border: 1rpx solid yellow;
 }
 
 .sidebar-class{
@@ -42,4 +55,5 @@ l-index-list{
   padding-left: 10rpx !important;
   padding-right: 20rpx !important;
   z-index: 1;
+  height: 1100rpx !important;
 }

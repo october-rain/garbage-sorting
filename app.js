@@ -1,6 +1,29 @@
 // app.js
+import {
+  ajax,
+  formatData
+} from '/utils/util'
 App({
-  onLaunch() {
+  globalData: {
+    userInfo: null
+  },
+  async onLaunch() {
+    if (!wx.getStorageSync('all_garbage')) {
+      let res = await ajax('getAllgarbage/')
+      console.log(res)
+      res = formatData(res.data)
+      wx.setStorage({
+        data: res,
+        key: 'all_garbage',
+      })
+      // console.log(1)
+      this.allGarbage = res
+      console.log("1",res)
+    } else {
+      this.allGarbage = wx.getStorageSync('all_garbage')
+      // console.log(2)
+    }
+
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -38,15 +61,13 @@ App({
         this.globalData.StatusBar = e.statusBarHeight;
         let capsule = wx.getMenuButtonBoundingClientRect();
         if (capsule) {
-         	this.globalData.Custom = capsule;
-        	this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
+          this.globalData.Custom = capsule;
+          this.globalData.CustomBar = capsule.bottom + capsule.top - e.statusBarHeight;
         } else {
-        	this.globalData.CustomBar = e.statusBarHeight + 50;
+          this.globalData.CustomBar = e.statusBarHeight + 50;
         }
       }
     })
-  },
-  globalData: {
-    userInfo: null
   }
+
 })

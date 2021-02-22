@@ -18,7 +18,7 @@
       <view class="cuIcon-similar {{PageCur=='category'?'text-green':'text-gray'}}"></view>
       <view class="{{PageCur=='category'?'text-green':'text-gray'}}">分类</view>
     </view>
-    <view class="action text-gray add-action">
+    <view bind:tap="recognizeGarbage" class="action text-gray add-action">
       <button class="cu-btn cuIcon-add bg-blue shadow"></button>
       识别
     </view>
