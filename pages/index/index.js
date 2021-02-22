@@ -1,13 +1,15 @@
 import {
   ajax,
+  ajaxPOST,
   formatData
 } from '../../utils/util'
 
 Page({
   data: {
     PageCur: 'home',
-    show: false,
-
+    popupShow: false,
+    // searchBox: 'popup-container'
+    // searchBox: 'popup-large-container'
     // currentConf: {
     //   show: false,
     //   animation: 'show',
@@ -59,7 +61,7 @@ Page({
   onShowPopupTap(e) {
 
     this.setData({
-      show: true
+      popupShow: true
     })
 
   },
@@ -71,5 +73,17 @@ Page({
   //       icon: 'none'
   //     });
   //   }
-  // }
+  // },
+  searchFocus(e){
+    this.setData({
+      LargeSearchBox: true,
+      popupShow: false
+    })
+  },
+  async searchConfirm(e){
+    console.log(e)
+    const data = {message: e.detail.value}
+    let res = await ajaxPOST('findgarbage/', data)
+    console.log(res)
+  }
 })

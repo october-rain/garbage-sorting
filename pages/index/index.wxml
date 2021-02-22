@@ -41,12 +41,43 @@
 <cu-drawer modalName='{{modalName}}' bindchangeDrawer="changeDrawer"></cu-drawer>
 
 <!-- popup -->
-<l-popup show="{{show}}" content-align="top center" bind:lintap="onPopupTap">
+<l-popup show="{{popupShow}}" content-align="center" bind:lintap="onPopupTap">
   <view class="popup-container">
-    <l-search-bar />
+    <l-search-bar bind:linfocus="searchFocus" focus="{{false}}" />
     <view class='popup-btn'>
       <view class="icon cuIcon-camerafill"></view>
       <view class="icon cuIcon-voicefill"></view>
     </view>
   </view>
 </l-popup>
+
+
+<l-transition show="{{LargeSearchBox}}" duration="300" name="" l-class="case-custom-class"
+  l-enter-active-class="lin-enter-active-class" l-leave-active-class="lin-leave-active-class"
+  l-enter-class="lin-enter-class" l-leave-to-class="lin-leave-to-class">
+  <!-- <l-status show type="cart" full-screen="{{false}}" bind:lintap="closeCase" data-name="1"/> -->
+  <l-search-bar bind:linconfirm="searchConfirm" l-container-class="ex-search-bar" focus="{{true}}" />
+  <view class="hotSearch">
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text> 
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text> 
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+  </view>
+</l-transition>

@@ -76,6 +76,13 @@ page {
 
 }
 
+.popup-large-container{
+  background: #fff;
+  width: 100%;
+  height: 440rpx;
+  padding: 140rpx 10rpx 0 10rpx;
+}
+
 .popup-btn {
   width: 100%;
   height: 240rpx;
@@ -94,4 +101,49 @@ page {
   color: black;
   border-radius: 100rpx;
   box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+}
+
+.case-custom-class{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 180rpx;
+}
+
+.lin-enter-active-class,
+.lin-leave-active-class {
+  /*transform: scale(1);*/
+  left: 0;
+  top: 0;
+}
+
+.lin-enter-class,
+.lin-leave-to-class {
+  /*transform: scale(0);*/
+  left: -100%;
+  top: -100%;
+}
+
+.ex-search-bar {
+  width: 600rpx !important;
+  height: 100rpx !important;
+}
+.hotSearch {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 30rpx 100rpx;
+  line-height: 50rpx;
+}
+
+.hotSearch text {
+  margin-right: 20rpx;
 }

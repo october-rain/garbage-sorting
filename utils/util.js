@@ -11,6 +11,25 @@ function ajax(name, data) {
   })
 }
 
+function ajaxPOST(name, data) {
+  console.log(JSON.stringify(data))
+  return new Promise((resovle, reject) => {
+    wx.request({
+      url: 'https://ruangong.tian999.top/' + name,
+      method: 'POST',
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      // data: JSON.stringify(data),
+      data: {
+        "message":data
+      },
+      success: resovle, // resolve 会让success的返回值 res return
+      fail: reject
+    })
+  })
+}
+
 function formatData(data) {
   const nameData = []
   for (let i = 1; i < data.length; i++) {
@@ -42,5 +61,6 @@ const formatNumber = n => {
 module.exports = {
   formatTime,
   ajax,
+  ajaxPOST,
   formatData
 }
