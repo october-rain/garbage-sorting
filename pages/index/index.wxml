@@ -4,7 +4,7 @@
   </cu-tabbar>
 
   <home class="page" wx:if="{{PageCur == 'home'}}"></home>
-  <category class="page" wx:if="{{PageCur == 'category'}}"></category>
+  <category nameData="{{nameData}}" class="page" wx:if="{{PageCur == 'category'}}"></category>
   <game class="page" wx:if="{{PageCur == 'game'}}"></game>
   <me class="page" wx:if="{{PageCur == 'me'}}"></me>
 
@@ -18,7 +18,7 @@
       <view class="cuIcon-similar {{PageCur=='category'?'text-green':'text-gray'}}"></view>
       <view class="{{PageCur=='category'?'text-green':'text-gray'}}">分类</view>
     </view>
-    <view bind:tap="recognizeGarbage" class="action text-gray add-action">
+    <view bind:tap="onShowPopupTap" class="action text-gray add-action">
       <button class="cu-btn cuIcon-add bg-blue shadow"></button>
       识别
     </view>
@@ -39,3 +39,14 @@
 </scroll-view>
 
 <cu-drawer modalName='{{modalName}}' bindchangeDrawer="changeDrawer"></cu-drawer>
+
+<!-- popup -->
+<l-popup show="{{show}}" content-align="top center" bind:lintap="onPopupTap">
+  <view class="popup-container">
+    <l-search-bar />
+    <view class='popup-btn'>
+      <view class="icon cuIcon-camerafill"></view>
+      <view class="icon cuIcon-voicefill"></view>
+    </view>
+  </view>
+</l-popup>

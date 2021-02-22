@@ -1,6 +1,41 @@
+import {
+  ajax,
+  formatData
+} from '../../utils/util'
+
 Page({
   data: {
-    PageCur: 'category',
+    PageCur: 'home',
+    show: false,
+
+    // currentConf: {
+    //   show: false,
+    //   animation: 'show',
+    //   zIndex: 99,
+    //   contentAlign: 'center',
+    // }
+
+  },
+  async onLoad(options) {
+    let res
+    if (!wx.getStorageSync('all_garbage')) {
+      res = await ajax('getAllgarbage/')
+      console.log(res)
+      res = formatData(res.data)
+      wx.setStorage({
+        data: res,
+        key: 'all_garbage',
+      })
+      console.log(1)
+      console.log("1", res)
+    } else {
+      res = wx.getStorageSync('all_garbage')
+      console.log(2)
+    }
+    this.setData({
+      nameData: res
+    })
+    console.log(this.data.nameData)
   },
   NavChange(e) {
     this.setData({
@@ -21,7 +56,20 @@ Page({
       modalName: e.detail.modal
     })
   },
-  recognizeGarbage(e){
-    
-  }
+  onShowPopupTap(e) {
+
+    this.setData({
+      show: true
+    })
+
+  },
+  // onPopupTap() {
+  //   const type = this.data.type;
+  //   if (type === 6) {
+  //     wx.showToast({
+  //       title: '请点击按钮取消！',
+  //       icon: 'none'
+  //     });
+  //   }
+  // }
 })

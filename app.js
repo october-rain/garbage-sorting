@@ -1,29 +1,9 @@
 // app.js
-import {
-  ajax,
-  formatData
-} from '/utils/util'
 App({
   globalData: {
     userInfo: null
   },
-  async onLaunch() {
-    if (!wx.getStorageSync('all_garbage')) {
-      let res = await ajax('getAllgarbage/')
-      console.log(res)
-      res = formatData(res.data)
-      wx.setStorage({
-        data: res,
-        key: 'all_garbage',
-      })
-      // console.log(1)
-      this.allGarbage = res
-      console.log("1",res)
-    } else {
-      this.allGarbage = wx.getStorageSync('all_garbage')
-      // console.log(2)
-    }
-
+  onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

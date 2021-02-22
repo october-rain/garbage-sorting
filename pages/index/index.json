@@ -3,6 +3,8 @@
     "home": "/pages/components/home/home",
     "category": "/pages/components/category/category",
     "game": "/pages/components/game/game",
-    "me": "/pages/components/me/me"
+    "me": "/pages/components/me/me",
+    "l-popup": "/miniprogram_npm/lin-ui/popup/index",
+    "l-search-bar": "/miniprogram_npm/lin-ui/search-bar/index"
   }
 }
