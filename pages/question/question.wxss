@@ -1,0 +1,12 @@
+/* pages/question/question.wxss */
+
+.cu-btn{
+  margin-top: 78rpx;
+  /* border: 1rpx solid red; */
+  border-radius: 30rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+}
+
+.my-icon {
+  margin-right: 50rpx;
+}

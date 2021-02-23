@@ -1,7 +1,4 @@
 <!--pages/me/me.wxml-->
-<cu-tabbar bgColor="bg-gradual-blue">
-  <view slot="content">ColorUI 空白模板</view>
-</cu-tabbar>
 <view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
   <view class="flex justify-center">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
@@ -12,7 +9,4 @@
       </view>
     </block>
   </view>
-</view>
-<view class="text-center margin-top">
-  <text class="text-grey text-xl">{{motto}}</text>
 </view>

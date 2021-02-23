@@ -58,9 +58,17 @@ const formatNumber = n => {
   return n[1] ? n : `0${n}`
 }
 
+const getRandomGarbage = (data) => {
+  let i = Math.floor(Math.random() * 26)
+  const j = Math.floor(Math.random() * (data[i].length - 1))
+  // console.log(1, data[i][j])
+  return data[i][j] || getRandomGarbage(data)
+}
+
 module.exports = {
   formatTime,
   ajax,
   ajaxPOST,
-  formatData
+  formatData,
+  getRandomGarbage
 }

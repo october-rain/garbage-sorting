@@ -1,0 +1,22 @@
+<!--pages/question/question.wxml-->
+<view class="container">
+  <view class="garbage"></view>
+  <view class="options">
+    <button data-id="1" class="cu-btn block lg" bind:tap="onGoToGame">
+      <text class="my-icon cuIcon-discover"></text>
+      <text>天降坠物</text>
+    </button>
+    <button data-id="2" class="cu-btn block lg" bind:tap="onGoToGame">
+      <text class="my-icon cuIcon-magic"></text>
+      <text>拖拖拽拽</text>
+    </button>
+    <button data-id="3" class="cu-btn block lg" bind:tap="onGoToGame">
+      <text class="my-icon cuIcon-question"></text>
+      <text>抢答时刻</text>
+    </button>
+    <button data-id="4" class="cu-btn block lg" bind:tap="onGoToGame">
+      <text class="my-icon cuIcon-question"></text>
+      <text>抢答时刻</text>
+    </button>
+  </view>
+</view>

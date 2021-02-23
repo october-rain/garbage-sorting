@@ -2,10 +2,12 @@
   <text class="cuIcon-pullright"></text>
 </view>
 <scroll-view scroll-y class="DrawerWindow {{modalName=='viewModal'?'show':''}}">
-  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
-    <view class="cu-item arrow" wx:for="{{2}}" wx:key="index">
+  <view class="cu-list menu card-menu shadow-lg list">
+    <button class="btn cu-btn icon">
+      <text class="cuIcon-edit"></text>
+    </button>
+    <view class="item cu-item arrow" wx:for="{{2}}" wx:key="index">
       <view class="content">
-        <text class="cuIcon-github text-grey"></text>
         <text class="text-grey">{{index +1}}</text>
       </view>
     </view>

@@ -1,2 +1,17 @@
 <!--pages/game/game.wxml-->
-<text>pages/game/game.wxml</text>
+
+<view class="container">
+  <image mode="aspectFit" class="game-image" src="/image/game/couple-sitting-living-room-playing-video-games-game-console-flat-illustration_94753-2458.jpg"></image>
+  <button data-id="1" class="cu-btn block lg" bind:tap="onGoToGame">
+    <text class="my-icon cuIcon-discover"></text>
+    <text>天降坠物</text>
+  </button>
+  <button data-id="2" class="cu-btn block lg" bind:tap="onGoToGame">
+    <text class="my-icon cuIcon-magic"></text> 
+    <text>拖拖拽拽</text>
+  </button>
+  <button data-id="3" class="cu-btn block lg" bind:tap="onGoToGame">
+    <text class="my-icon cuIcon-question"></text>
+    <text>抢答时刻</text>
+  </button>
+</view>

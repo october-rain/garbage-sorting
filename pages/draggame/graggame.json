@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index"
+  },
+  "navigationStyle": "default",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "天降坠物",
+  "navigationBarTextStyle": "black"
+}

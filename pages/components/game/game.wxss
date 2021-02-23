@@ -1,1 +1,23 @@
 /* pages/game/game.wxss */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.game-image {
+  width: 90%;
+  margin-top: 30rpx;
+  border-radius: 60rpx;
+}
+
+.cu-btn{
+  margin-top: 78rpx;
+  /* border: 1rpx solid red; */
+  border-radius: 30rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+}
+
+.my-icon {
+  margin-right: 50rpx;
+}

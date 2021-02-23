@@ -1,6 +1,6 @@
 <scroll-view scroll-y class="scrollPage DrawerPage {{modalName=='viewModal'?'show':''}}">
   <cu-tabbar bgColor="bg-gradual-pink" isMenu="{{true}}" bindchangeDrawer="changeDrawer">
-    <view slot="content">轮播图</view>
+    <view slot="content">物尽其用</view>
   </cu-tabbar>
 
   <home class="page" wx:if="{{PageCur == 'home'}}"></home>
@@ -41,7 +41,7 @@
 <cu-drawer modalName='{{modalName}}' bindchangeDrawer="changeDrawer"></cu-drawer>
 
 <!-- popup -->
-<l-popup show="{{popupShow}}" content-align="center" bind:lintap="onPopupTap">
+<l-popup show="{{popupShow}}" content-align="center">
   <view class="popup-container">
     <l-search-bar bind:linfocus="searchFocus" focus="{{false}}" />
     <view class='popup-btn'>

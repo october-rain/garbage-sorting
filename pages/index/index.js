@@ -6,7 +6,7 @@ import {
 
 Page({
   data: {
-    PageCur: 'home',
+    PageCur: 'game',
     popupShow: false,
     // searchBox: 'popup-container'
     // searchBox: 'popup-large-container'
@@ -65,15 +65,6 @@ Page({
     })
 
   },
-  // onPopupTap() {
-  //   const type = this.data.type;
-  //   if (type === 6) {
-  //     wx.showToast({
-  //       title: '请点击按钮取消！',
-  //       icon: 'none'
-  //     });
-  //   }
-  // },
   searchFocus(e){
     this.setData({
       LargeSearchBox: true,

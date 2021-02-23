@@ -65,6 +65,23 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/dropgame/dropgame",
+          "pathName": "pages/dropgame/dropgame",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/draggame/graggame",
+          "pathName": "pages/draggame/graggame",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/question/question",
+          "pathName": "pages/question/question",
+          "scene": null
         }
       ]
     }

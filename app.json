@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/dropgame/dropgame",
+    "pages/draggame/graggame",
+    "pages/question/question"
   ],
   "window": {
     "backgroundTextStyle": "light",

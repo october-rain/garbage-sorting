@@ -1,0 +1,41 @@
+/* pages/dropgame/dropgame.wxss */
+.bottom {
+  position: absolute;
+  width: 100%;
+  bottom: 0
+}
+
+.classification {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.garbage{
+
+  padding: 14rpx 49rpx;
+}
+
+
+.control-bar,
+.control {
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.l-avatar{
+  margin-left: 40rpx;
+}
+
+.count {
+  margin-right: 40rpx;
+}
+
+.middle {
+  margin: 0 60rpx;
+  font-size: 32rpx;
+}
