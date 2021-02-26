@@ -1,4 +1,9 @@
 // pages/draggame/graggame.js
+import {
+  getRandomGarbage
+} from '../../utils/util'
+const data = wx.getStorageSync('all_garbage')
+
 Page({
 
   /**

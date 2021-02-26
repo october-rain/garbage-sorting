@@ -1,22 +1,34 @@
 <!--pages/question/question.wxml-->
 <view class="container">
-  <view class="garbage"></view>
-  <view class="options">
-    <button data-id="1" class="cu-btn block lg" bind:tap="onGoToGame">
-      <text class="my-icon cuIcon-discover"></text>
-      <text>天降坠物</text>
-    </button>
-    <button data-id="2" class="cu-btn block lg" bind:tap="onGoToGame">
-      <text class="my-icon cuIcon-magic"></text>
-      <text>拖拖拽拽</text>
-    </button>
-    <button data-id="3" class="cu-btn block lg" bind:tap="onGoToGame">
-      <text class="my-icon cuIcon-question"></text>
-      <text>抢答时刻</text>
-    </button>
-    <button data-id="4" class="cu-btn block lg" bind:tap="onGoToGame">
-      <text class="my-icon cuIcon-question"></text>
-      <text>抢答时刻</text>
-    </button>
+  <view class="info">
+    <l-avatar class="l-avatar" shape="circle" open-data="{{['userAvatarUrl']}}" size="50" />
+    <text class="count">{{count}} 积分</text>
+    <text></text>
   </view>
+  <view class="garbage">{{garbageName}}</view>
+  <view class="options">
+    <button data-id="1" class="cu-btn block lg bg-blue" bind:tap="selectAnswer">
+      可回收垃圾
+    </button>
+    <button data-id="2" class="cu-btn block lg bg-green" bind:tap="selectAnswer">
+      干垃圾
+    </button>
+    <button data-id="3" class="cu-btn block lg bg-orange" bind:tap="selectAnswer">
+      湿垃圾
+    </button>
+    <button data-id="4" class="cu-btn block lg bg-red" bind:tap="selectAnswer">
+      有害垃圾
+    </button>
+    <view class="skip bg-blue light" bind:tap="skip">跳过</view>
+  </view>
+
+
+  <!-- toast -->
+  <l-toast
+    show="{{toastShow}}"
+    title="{{toastTitle}}"
+    icon="{{toastIcon}}"
+    duration="1500"
+  />
+
 </view>

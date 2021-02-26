@@ -1,7 +1,5 @@
 {
-  "usingComponents": {
-    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index"
-  },
+  "usingComponents": {},
   "navigationStyle": "default",
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#fff",

@@ -1,4 +1,41 @@
 /* pages/question/question.wxss */
+.container {
+}
+
+.info {
+  position: absolute;
+  top: 20rpx;
+  left: 500rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 210rpx;
+  margin-left: 30rpx;
+  padding: 15rpx 0 15rpx 10rpx;
+  border-radius: 30rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+}
+
+.l-avatar{
+
+}
+
+.count {
+  margin-left: 5rpx;
+  margin-bottom: 5rpx;
+}
+
+.garbage {
+  margin: 180rpx 0 40rpx 0;
+  text-align: center;
+  font-size: 60rpx;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .cu-btn{
   margin-top: 78rpx;
@@ -9,4 +46,13 @@
 
 .my-icon {
   margin-right: 50rpx;
+}
+
+.skip {
+  font-size: 26rpx;
+  text-align: center;
+  margin-top: 80rpx;
+  padding: 16rpx 28rpx;
+  border-radius: 30rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.1);
 }

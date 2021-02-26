@@ -1,1 +1,21 @@
 /* pages/draggame/graggame.wxss */
+page, .container {
+  height: 100%;
+}
+
+.classification{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.column{
+  display: flex;
+  justify-content: space-between;
+}
+
+.garbage {
+  font-size: 160rpx;
+}
+

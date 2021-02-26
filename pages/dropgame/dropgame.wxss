@@ -1,4 +1,21 @@
 /* pages/dropgame/dropgame.wxss */
+page, .container {
+  height: 100%;
+}
+
+.new-garbage{
+  min-width: 25vw;
+  position: absolute;
+  text-align: center;
+}
+
+.inner-garbage {
+  padding: 12rpx 20rpx;
+  border-radius: 10rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+  background-color: #fff;
+}
+
 .bottom {
   position: absolute;
   width: 100%;
@@ -13,8 +30,9 @@
 }
 
 .garbage{
-
-  padding: 14rpx 49rpx;
+  padding: 10rpx 40rpx 10rpx;
+  font-size: 100rpx;
+  height: 10vh;
 }
 
 
@@ -36,6 +54,11 @@
 }
 
 .middle {
-  margin: 0 60rpx;
-  font-size: 32rpx;
+  margin: 0 110rpx;
+  font-size: 50rpx;
+}
+
+.right, .left {
+  font-size: 40rpx;
+  padding: 10rpx;
 }

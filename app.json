@@ -14,7 +14,9 @@
   },
   "usingComponents": {
     "cu-tabbar": "/components/cu-tabbar/index",
-    "cu-drawer": "/components/cu-drawer/index"
+    "cu-drawer": "/components/cu-drawer/index",
+    "l-avatar": "/miniprogram_npm/lin-ui/avatar/index",
+    "l-toast": "/miniprogram_npm/lin-ui/toast/index"
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

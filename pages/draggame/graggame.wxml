@@ -1,10 +1,14 @@
 <!--pages/draggame/graggame.wxml-->
 <view class="container">
-  <view class="garbage"></view>
+  <view class="new-garbage"></view>
   <view class="classification">
-      <text class="garbage recycle bg-blue">可回收</text>
-      <text class="garbage wet bg-green">湿垃圾</text>
-      <text class="garbage dry bg-orange">干垃圾</text>
-      <text class="garbage poisonous bg-red">有害垃圾</text>
+    <view class="column">
+      <text class="garbage recycle icon iconfont icon-kehuishouwu bg-blue"></text>
+      <text class="garbage poisonous icon iconfont icon-youhailaji bg-red"></text>
+    </view>
+    <view class="column">
+      <text class="garbage wet icon iconfont icon-shilaji bg-brown"></text>
+      <text class="garbage dry icon iconfont icon-ganlaji bg-black"></text>
+    </view>
     </view>
 </view>
