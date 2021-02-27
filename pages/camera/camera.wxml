@@ -1,0 +1,11 @@
+<!--pages/camera/camera.wxml-->
+<view class="container">
+  <image mode="aspectFit" class="garbage-img" src="{{img_path}}"></image>
+
+  <view></view>
+
+  <button class="cu-btn block lg" bind:tap="TapCameraAgain">
+    <text class="my-icon cuIcon-camerafill"></text> 
+    <text>再来一张</text>
+  </button>
+</view>

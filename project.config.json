@@ -87,6 +87,12 @@
         {
           "name": "pages/test/test",
           "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/camera/camera",
+          "pathName": "pages/camera/camera",
           "scene": null
         }
       ]

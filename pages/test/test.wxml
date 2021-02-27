@@ -1,6 +1,0 @@
-<!--pages/test/test.wxml-->
-<view class="container" style="position: relative">
-  <text catchtouchmove="buttonMove" catchtouchstart="buttonStart"
-    catchtouchend="buttonEnd"
-    style="position: absolute;top:{{buttonTop}}px;left:{{buttonLeft}}px;width: 100px;height: 40px">text</text>
-</view>

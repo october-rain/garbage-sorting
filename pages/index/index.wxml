@@ -24,13 +24,11 @@
     </view>
     <view class="action" bindtap="NavChange" data-cur="game">
       <view class="cuIcon-game {{PageCur=='game'?'text-green':'text-gray'}}">
-        <view class="cu-tag badge">99</view>
       </view>
       <view class="{{PageCur=='game'?'text-green':'text-gray'}}">游戏</view>
     </view>
     <view class="action" bindtap="NavChange" data-cur="me">
       <view class="cuIcon-my {{PageCur=='me'?'text-green':'text-gray'}}">
-        <view class="cu-tag badge"></view>
       </view>
       <view class="{{PageCur=='me'?'text-green':'text-gray'}}">我的</view>
     </view>
@@ -45,8 +43,8 @@
   <view class="popup-container">
     <l-search-bar bind:linfocus="searchFocus" focus="{{false}}" />
     <view class='popup-btn'>
-      <view class="icon cuIcon-camerafill"></view>
-      <view class="icon cuIcon-voicefill"></view>
+      <view bind:tap="tapCamera" class="icon cuIcon-camerafill"></view>
+      <view bind:tap="tapVoice" class="icon cuIcon-voicefill"></view>
     </view>
   </view>
 </l-popup>

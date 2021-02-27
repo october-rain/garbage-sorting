@@ -39,6 +39,11 @@ Page({
     })
     console.log(this.data.nameData)
   },
+  onShow(){
+    this.setData({
+      popupShow: false
+    })
+  },
   NavChange(e) {
     this.setData({
       PageCur: e.currentTarget.dataset.cur
@@ -76,5 +81,13 @@ Page({
     const data = {message: e.detail.value}
     let res = await ajaxPOST('findgarbage/', data)
     console.log(res)
+  },
+  tapCamera(){
+    wx.navigateTo({
+      url: '/pages/camera/camera',
+    })
+  },
+  tapVoice(){
+
   }
 })
