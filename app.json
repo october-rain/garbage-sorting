@@ -3,7 +3,8 @@
     "pages/index/index",
     "pages/dropgame/dropgame",
     "pages/draggame/graggame",
-    "pages/question/question"
+    "pages/question/question",
+    "pages/test/test"
   ],
   "window": {
     "backgroundTextStyle": "light",

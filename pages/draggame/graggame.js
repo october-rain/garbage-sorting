@@ -3,21 +3,103 @@ import {
   getRandomGarbage
 } from '../../utils/util'
 const data = wx.getStorageSync('all_garbage')
-
+const app = getApp()
+const windowHeight = app.globalData.windowHeight
+const windowWidth = app.globalData.windowWidth
+let startPoint;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    garbageName: "",
+    _garbageClass: '',
+    score: 0,
+    x: 50,
+    y: 50,
+    buttonTop: windowHeight / 2 - 10,
+    buttonLeft: windowWidth / 2 - 10
   },
+  buttonStart: function (e) {
+    console.log(e)
+    startPoint = e.touches[0]
+  },
+  buttonMove: function (e) {
+    let endPoint = e.touches[e.touches.length - 1]
+    // console.log(endPoint)
+    let translateX = endPoint.clientX - startPoint.clientX
+    let translateY = endPoint.clientY - startPoint.clientY
+    startPoint = endPoint
+    let buttonTop = this.data.buttonTop + translateY
+    let buttonLeft = this.data.buttonLeft + translateX
 
+    this.setData({
+      buttonTop: buttonTop,
+      buttonLeft: buttonLeft
+    })
+  },
+  buttonEnd: function (e) {
+    console.log(e)
+    let endPoint = e.changedTouches[e.changedTouches.length - 1]
+    let x = endPoint.clientX
+    let y = endPoint.clientY
+    const name = this.calScore(x, y)
+    if(name) {
+      let gclass = this.data._garbageClass
+      if(gclass === name) {
+        this.setData({
+          score: this.data.score + 2,
+          toastShow: true,
+          toastTitle: "回答正确 +2 分",
+          toastIcon: "success"
+        })
+      } else {
+        this.setData({
+          score: this.data.score - 1,
+          toastShow: true,
+          toastTitle: `回答错误 -1 分, 正确答案是: ${gclass}`,
+          toastIcon: 'error'
+        })
+      }
+      this.createGarbage()
+    }
+    this.setData({
+      buttonTop: app.globalData.windowHeight / 2 - 10,
+      buttonLeft: app.globalData.windowWidth / 2 - 10
+    })
+  },
+  calScore(x, y){
+    // console.log(x, y, windowWidth * 0.35, windowHeight * 0.15)
+    if(x < windowWidth * 0.38 && y < windowHeight * 0.25){
+      console.log('可回收')
+      return "可回收垃圾"
+    } else if (x > windowWidth * 0.62 && y < windowHeight * 0.25) {
+      console.log('有害')
+      return "有害垃圾" 
+    } else if (x < windowWidth * 0.38 && y > windowHeight * 0.75) {
+      console.log('湿')
+      return "湿垃圾"
+    } else if( x > windowWidth * 0.62 && y > windowHeight * 0.75) {
+      console.log('干')
+      return "干垃圾" 
+    } else {
+      return false
+    }
+  },
+  createGarbage() {
+    const garbage = getRandomGarbage(data)
+    console.log(garbage)
+    this.data._garbageClass = garbage.classification_name
+    this.setData({
+      garbageName: garbage.garbage_name,
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.createGarbage()
   },
 
   /**

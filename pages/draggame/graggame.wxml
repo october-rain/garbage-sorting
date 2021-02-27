@@ -1,6 +1,16 @@
 <!--pages/draggame/graggame.wxml-->
 <view class="container">
-  <view class="new-garbage"></view>
+  <view class="personal">
+    <l-avatar class="l-avatar" shape="circle" open-data="{{['userAvatarUrl']}}" size="50" />
+    <text class="count">{{score}}分</text>
+  </view>
+
+  <view class="new-garbage" direction="all" out-of-bounds catchtouchmove="buttonMove" catchtouchstart="buttonStart"
+    catchtouchend="buttonEnd"
+    style="position: absolute;top:{{buttonTop}}px;left:{{buttonLeft}}px;">
+    <text class="inner-garbage">{{garbageName}}</text>
+  </view>
+
   <view class="classification">
     <view class="column">
       <text class="garbage recycle icon iconfont icon-kehuishouwu bg-blue"></text>
@@ -10,5 +20,14 @@
       <text class="garbage wet icon iconfont icon-shilaji bg-brown"></text>
       <text class="garbage dry icon iconfont icon-ganlaji bg-black"></text>
     </view>
-    </view>
+  </view>
+
+
+  <!-- toast -->
+  <l-toast
+    show="{{toastShow}}"
+    title="{{toastTitle}}"
+    icon="{{toastIcon}}"
+    duration="1500"
+  />
 </view>

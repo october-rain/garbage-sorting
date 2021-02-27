@@ -3,6 +3,40 @@ page, .container {
   height: 100%;
 }
 
+.personal {
+  position: absolute;
+  top: 40vh;
+  left: 87vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15rpx 15rpx;
+  border-radius: 10rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+}
+movable-area {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.new-garbage{
+  min-width: 25vw;
+  position: absolute;
+  text-align: center;
+  left: 50vw;
+  top: 50vh;
+  margin-left: -14vw;
+  margin-top: -30rpx;
+}
+
+.inner-garbage {
+  padding: 12rpx 20rpx;
+  border-radius: 10rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+  background-color: #fff;
+}
+
 .classification{
   height: 100%;
   display: flex;
@@ -16,6 +50,6 @@ page, .container {
 }
 
 .garbage {
-  font-size: 160rpx;
+  font-size: 180rpx;
 }
 

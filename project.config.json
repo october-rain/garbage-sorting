@@ -81,6 +81,12 @@
         {
           "name": "pages/question/question",
           "pathName": "pages/question/question",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
           "scene": null
         }
       ]
