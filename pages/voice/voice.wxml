@@ -1,0 +1,8 @@
+<!--pages/voice/voice.wxml-->
+<view class="container">
+  <view class="content">识别结果</view>
+  <view class="btn-container" style="width:{{btnWidth}}rpx;height:{{btnHeight}}rpx;" bind:touchstart="tapBtnStart" bind:touchend="tapBtnEnd">
+    <view class="wave" style="width:{{btnWidth}}rpx;height:{{btnHeight}}rpx;"></view>
+  </view>
+  <view bind:tap="play">play</view>
+</view>

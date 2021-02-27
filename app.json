@@ -4,7 +4,8 @@
     "pages/dropgame/dropgame",
     "pages/draggame/graggame",
     "pages/question/question",
-    "pages/camera/camera"
+    "pages/camera/camera",
+    "pages/voice/voice"
   ],
   "window": {
     "backgroundTextStyle": "light",

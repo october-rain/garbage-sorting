@@ -8,15 +8,14 @@ Page({
   data: {
     PageCur: 'game',
     popupShow: false,
-    // searchBox: 'popup-container'
-    // searchBox: 'popup-large-container'
-    // currentConf: {
-    //   show: false,
-    //   animation: 'show',
-    //   zIndex: 99,
-    //   contentAlign: 'center',
-    // }
-
+    cBtn: {
+      width: 120,
+      height: 120
+    },
+    vBtn: {
+      width: 120,
+      height: 120
+    },
   },
   async onLoad(options) {
     let res
@@ -83,11 +82,41 @@ Page({
     console.log(res)
   },
   tapCamera(){
+    this.setData({
+      cBtn: {
+        width: 110,
+        height: 110
+      }
+    })
+  },
+  tapVoice(){
+    this.setData({
+      vBtn: {
+        width: 110,
+        height: 110
+      }
+    })
+  },
+  tapCameraEnd(){
+    this.setData({
+      cBtn: {
+        width: 120,
+        height: 120
+      }
+    })
     wx.navigateTo({
       url: '/pages/camera/camera',
     })
   },
-  tapVoice(){
-
-  }
+  tapVoiceEnd(){
+    this.setData({
+      vBtn: {
+        width: 120,
+        height: 120
+      }
+    })
+    wx.navigateTo({
+      url: '/pages/voice/voice',
+    })
+  },
 })

@@ -43,8 +43,8 @@
   <view class="popup-container">
     <l-search-bar bind:linfocus="searchFocus" focus="{{false}}" />
     <view class='popup-btn'>
-      <view bind:tap="tapCamera" class="icon cuIcon-camerafill"></view>
-      <view bind:tap="tapVoice" class="icon cuIcon-voicefill"></view>
+      <view bind:touchstart="tapCamera" bind:touchend="tapCameraEnd" class="icon cuIcon-camerafill" style="width:{{cBtn.width}}rpx;height:{{cBtn.height}}rpx;"></view>
+      <view bind:touchstart="tapVoice" bind:touchend="tapVoiceEnd" class="icon cuIcon-voicefill" style="width:{{vBtn.width}}rpx;height:{{vBtn.height}}rpx;"></view>
     </view>
   </view>
 </l-popup>

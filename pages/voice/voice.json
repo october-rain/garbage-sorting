@@ -1,0 +1,8 @@
+{
+  "usingComponents": {},
+  "navigationStyle": "default",
+  "backgroundTextStyle": "light",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "语音识别",
+  "navigationBarTextStyle": "black"
+}
