@@ -1,6 +1,8 @@
 /* pages/draggame/graggame.wxss */
+
 page, .container {
   height: 100%;
+  overflow: hidden;
 }
 
 .personal {
@@ -14,14 +16,9 @@ page, .container {
   border-radius: 10rpx;
   box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
 }
-movable-area {
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-}
 
 .new-garbage{
-  min-width: 25vw;
+  min-width: 35vw;
   position: absolute;
   text-align: center;
   left: 50vw;
@@ -31,10 +28,11 @@ movable-area {
 }
 
 .inner-garbage {
-  padding: 12rpx 20rpx;
+  padding: 28rpx 40rpx;
   border-radius: 10rpx;
   box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
   background-color: #fff;
+  font-size: 30rpx;
 }
 
 .classification{

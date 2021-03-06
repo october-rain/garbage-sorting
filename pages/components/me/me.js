@@ -12,11 +12,13 @@ Component({
 
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+
+    Score: 10,
   },
   lifetimes: {
     attached(){
-      console.log("me")
+      // console.log("me")
       if (app.globalData.userInfo) {
         this.setData({
           userInfo: app.globalData.userInfo,
@@ -31,11 +33,11 @@ Component({
             userInfo: res.userInfo,
             hasUserInfo: true
           })
-          console.log(this.data.hasUserInfo)
+          // console.log(this.data.hasUserInfo)
         }
       } else {
         // 在没有 open-type=getUserInfo 版本的兼容处理
-        console.log(this.data.hasUserInfo)
+        // console.log(this.data.hasUserInfo)
         wx.getUserInfo({
           success: res => {
             app.globalData.userInfo = res.userInfo

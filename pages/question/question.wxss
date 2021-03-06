@@ -1,5 +1,7 @@
 /* pages/question/question.wxss */
-.container {
+page {
+  height: 100%;
+  overflow: hidden;
 }
 
 .info {
@@ -14,10 +16,6 @@
   padding: 15rpx 0 15rpx 10rpx;
   border-radius: 30rpx;
   box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
-}
-
-.l-avatar{
-
 }
 
 .count {

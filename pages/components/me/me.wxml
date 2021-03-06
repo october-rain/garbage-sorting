@@ -1,12 +1,28 @@
 <!--pages/me/me.wxml-->
-<view class="margin-xl padding-xl bg-white radius shadow shadow-lg">
+<view class="margin-xl shadow-lg">
   <view class="flex justify-center">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class='cu-btn round bg-green shadow'> 获取头像昵称 </button>
-    <block wx:else>
-      <view class='text-center'>
-        <view class="cu-avatar xl round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
-        <view class="padding">{{userInfo.nickName}}</view>
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"
+      class='login cu-btn round bg-green shadow'> 获取头像昵称 </button>
+    <view wx:else class="show">
+      <view class='basic-info text-center bg-white radius shadow'>
+        <view class="avatar cu-avatar round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+        <view class="text">
+          <view class="name">{{userInfo.nickName}}</view>
+          <view class="socre">积分：{{Score}}</view>
+        </view>
       </view>
-    </block>
+      <button class="cu-btn lg" bind:tap="selectAnswer">
+        <text class="my-icon cuIcon-selection text-blue"></text>
+        <text>我的排名</text>
+      </button>
+      <button class="cu-btn lg" bind:tap="selectAnswer">
+        <text class="my-icon cuIcon-message text-orange"></text>
+        <text>意见反馈</text>
+      </button>
+      <button class="cu-btn lg" bind:tap="selectAnswer">
+        <text class="my-icon cuIcon-link text-red"></text>
+        <text>开发信息</text>
+      </button>
+    </view>
   </view>
 </view>

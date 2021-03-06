@@ -11,21 +11,26 @@ function ajax(name, data) {
   })
 }
 
-function ajaxPOST(name, data) {
+function ajaxPOST(baseUrl, data, name) {
+  console.log(data)
   console.log(JSON.stringify(data))
   return new Promise((resovle, reject) => {
     wx.request({
-      url: 'https://ruangong.tian999.top/' + name,
+      url: baseUrl + name,
       method: 'POST',
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
       },
-      // data: JSON.stringify(data),
-      data: {
-        "message":data
-      },
+      data: data,
+      // data: {
+      //   message: data
+      // },
       success: resovle, // resolve 会让success的返回值 res return
       fail: reject
+      // success: function(msg) {
+      //   console.log(msg)
+      //   resovle()
+      // }
     })
   })
 }

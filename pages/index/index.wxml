@@ -41,7 +41,7 @@
 <!-- popup -->
 <l-popup show="{{popupShow}}" content-align="center">
   <view class="popup-container">
-    <l-search-bar bind:linfocus="searchFocus" focus="{{false}}" />
+    <l-search-bar bind:linfocus="searchFocus" focus="{{false}}" show-cancel="{{false}}"/>
     <view class='popup-btn'>
       <view bind:touchstart="tapCamera" bind:touchend="tapCameraEnd" class="icon cuIcon-camerafill" style="width:{{cBtn.width}}rpx;height:{{cBtn.height}}rpx;"></view>
       <view bind:touchstart="tapVoice" bind:touchend="tapVoiceEnd" class="icon cuIcon-voicefill" style="width:{{vBtn.width}}rpx;height:{{vBtn.height}}rpx;"></view>
@@ -54,7 +54,7 @@
   l-enter-active-class="lin-enter-active-class" l-leave-active-class="lin-leave-active-class"
   l-enter-class="lin-enter-class" l-leave-to-class="lin-leave-to-class">
   <!-- <l-status show type="cart" full-screen="{{false}}" bind:lintap="closeCase" data-name="1"/> -->
-  <l-search-bar bind:linconfirm="searchConfirm" l-container-class="ex-search-bar" focus="{{true}}" />
+  <l-search-bar bind:linconfirm="searchConfirm" l-container-class="ex-search-bar" bind:lincancel="searchBlur"/>
   <view class="hotSearch">
     <text>干电池</text>
     <text>干电池</text>

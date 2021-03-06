@@ -3,7 +3,7 @@
     style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
     <!-- menu slot -->
     <view class="action" wx:if="{{isMenu}}">
-      <text class="cuIcon-moreandroid" bindtap="changeDrawer" data-target="viewModal"></text>
+      <text class="cuIcon-more" bindtap="changeDrawer" data-target="viewModal"></text>
       <slot name="menuText"></slot>
     </view>
     <!-- back slot -->

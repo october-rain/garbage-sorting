@@ -1,6 +1,7 @@
 /* pages/dropgame/dropgame.wxss */
 page, .container {
   height: 100%;
+  overflow: hidden;
 }
 
 .new-garbage{
@@ -54,11 +55,14 @@ page, .container {
 }
 
 .middle {
-  margin: 0 110rpx;
+  margin: 0 80rpx;
   font-size: 50rpx;
 }
 
 .right, .left {
   font-size: 40rpx;
-  padding: 10rpx;
+}
+
+.middle, .right, .left {
+  padding: 20rpx;
 }

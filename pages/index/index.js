@@ -6,7 +6,7 @@ import {
 
 Page({
   data: {
-    PageCur: 'game',
+    PageCur: 'me',
     popupShow: false,
     cBtn: {
       width: 120,
@@ -15,7 +15,7 @@ Page({
     vBtn: {
       width: 120,
       height: 120
-    },
+    }
   },
   async onLoad(options) {
     let res
@@ -27,11 +27,8 @@ Page({
         data: res,
         key: 'all_garbage',
       })
-      console.log(1)
-      console.log("1", res)
     } else {
       res = wx.getStorageSync('all_garbage')
-      console.log(2)
     }
     this.setData({
       nameData: res
@@ -63,7 +60,6 @@ Page({
     })
   },
   onShowPopupTap(e) {
-
     this.setData({
       popupShow: true
     })
@@ -72,13 +68,19 @@ Page({
   searchFocus(e){
     this.setData({
       LargeSearchBox: true,
-      popupShow: false
+      popupShow: false,
+    })
+  },
+  searchBlur(){
+    this.setData({
+      LargeSearchBox: false,
+      popupShow: false,
     })
   },
   async searchConfirm(e){
     console.log(e)
     const data = {message: e.detail.value}
-    let res = await ajaxPOST('findgarbage/', data)
+    let res = await ajaxPOST('https://ruangong.tian999.top/', data, 'findgarbage/')
     console.log(res)
   },
   tapCamera(){

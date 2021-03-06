@@ -17,85 +17,103 @@ Page({
       btnWidth: 200
     })
     recorderManager.start({
-      format: 'mp3'
+      format: 'pcm'
     })
   },
-  tapBtnEnd() {
+  async tapBtnEnd() {
     this.setData({
       btnWidth: 180,
       btnHeight: 180
     })
     let that = this
     recorderManager.stop()
-    recorderManager.onStop(function (res) {
+    await recorderManager.onStop(function (res) {
       // 停止录音之后，把录取到的音频放在res.tempFilePath
       that.setData({
         audioSrc: res.tempFilePath
       })
       console.log(res.tempFilePath)
+      // let binary = wx.getFileSystemManager().readFileSync(res.tempFilePath, 'binary') 
+      // console.log(binary)
+      // const data = {key: '222552c49b9c2c270a34b1614fe25608', say: binary, format: 'pcm'}
+      // console.log(data)
+      wx.getFileSystemManager().readFile({
+        filePath: res.tempFilePath, //选择语音返回的相对路径
+        encoding: 'binary', //编码格式
+        success: res => { //成功的回调
+          console.log(res.data)
+          const data = {
+            key: '222552c49b9c2c270a34b1614fe25608',
+            say: res.data,
+            format: 'wav'
+          }
+          wx.request({
+            url: 'http://api.tianapi.com/txapi/voicelajifenlei/index',
+            method: 'POST',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: data,
+            success: function (res) {
+              if (res.data.code == 200) {
+                console.log(res.data)
+                that.setData({
+                  content: res.data.newslist[0].content
+                })
+              } else {
+                that.setData({
+                  content: res.data.msg
+                })
+              }
+            },
+            fail: function (err) {
+              console.log(err)
+            }
+          })
+        },
+        fail: res => {
+          console.log(res)
+        }
+      })
+
     });
+
+    // const data = {
+    //   key: '222552c49b9c2c270a34b1614fe25608',
+    //   img: this.data.audioSrc
+    // }
+    // wx.request({
+    //   url: 'http://api.tianapi.com/txapi/voicelajifenlei/index',
+    //   method: 'POST',
+    //   header: {
+    //     "Content-Type": "application/x-www-form-urlencoded"
+    //   },
+    //   data: data,
+    //   success: function (res) {
+    //     if (res.data.code == 200) {
+    //       that.setData({
+    //         content: res.data.newslist[0].content
+    //       })
+    //     } else {
+    //       that.setData({
+    //         content: res.data.msg
+    //       })
+    //     }
+    //   },
+    //   fail: function (err) {
+    //     console.log(err)
+    //   }
+    // })
+
+
   },
-  play(){
+  play() {
     innerAudioContext = wx.createInnerAudioContext();
     innerAudioContext.onError((res) => {
       console.error(res)
     })
-    innerAudioContext.src = this.data.audioSrc;  // 这里可以是录音的临时路径
+    innerAudioContext.src = this.data.audioSrc; // 这里可以是录音的临时路径
     innerAudioContext.play()
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })
