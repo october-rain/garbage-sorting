@@ -1,9 +1,9 @@
 // pages/voice/voice.js
+const app = getApp()
 const recorderManager = wx.getRecorderManager() //初始化音频管理器
 let innerAudioContext = wx.createInnerAudioContext() //创建内部 audio 上下文对象 // 注意不能使用 const
 
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -17,7 +17,11 @@ Page({
       btnWidth: 200
     })
     recorderManager.start({
-      format: 'pcm'
+      duration: 60000,
+      sampleRate: 16000,
+      numberOfChannels: 1,
+      encodeBitRate: 48000,
+      format: 'PCM',
     })
   },
   async tapBtnEnd() {
@@ -30,82 +34,34 @@ Page({
     await recorderManager.onStop(function (res) {
       // 停止录音之后，把录取到的音频放在res.tempFilePath
       that.setData({
-        audioSrc: res.tempFilePath
+        audioSrc: res.tempFilePath,
+        fileSize: res.fileSize
       })
       console.log(res.tempFilePath)
-      // let binary = wx.getFileSystemManager().readFileSync(res.tempFilePath, 'binary') 
-      // console.log(binary)
-      // const data = {key: '222552c49b9c2c270a34b1614fe25608', say: binary, format: 'pcm'}
-      // console.log(data)
-      wx.getFileSystemManager().readFile({
-        filePath: res.tempFilePath, //选择语音返回的相对路径
-        encoding: 'binary', //编码格式
-        success: res => { //成功的回调
-          console.log(res.data)
-          const data = {
-            key: '222552c49b9c2c270a34b1614fe25608',
-            say: res.data,
-            format: 'wav'
-          }
-          wx.request({
-            url: 'http://api.tianapi.com/txapi/voicelajifenlei/index',
-            method: 'POST',
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: data,
-            success: function (res) {
-              if (res.data.code == 200) {
-                console.log(res.data)
-                that.setData({
-                  content: res.data.newslist[0].content
-                })
-              } else {
-                that.setData({
-                  content: res.data.msg
-                })
-              }
-            },
-            fail: function (err) {
-              console.log(err)
-            }
-          })
-        },
-        fail: res => {
+
+      // wx.getFileSystemManager().readFile({
+      //   filePath: res.tempFilePath, //选择语音返回的相对路径
+      //   encoding: 'base64', //编码格式
+      //   success: res => { //成功的回调
+      //     console.log(res)
+      //     // console.log(that.data.fileSize)
+      //     const data = {bs: res.data ,filesize: that.data.fileSize}
+      //     const result = ajaxPOST('http://192.168.1.100:8000/', data, 'yuyin_garbage/')
+      //     console.log(result)
+      //   }
+      // })
+      
+      wx.uploadFile({
+        url: app.gUrl + 'yuyin_garbage/',
+        filePath: res.tempFilePath,
+        name: 'filename',
+        success (res){
+          const data = res.data
+          //do something
           console.log(res)
         }
       })
-
     });
-
-    // const data = {
-    //   key: '222552c49b9c2c270a34b1614fe25608',
-    //   img: this.data.audioSrc
-    // }
-    // wx.request({
-    //   url: 'http://api.tianapi.com/txapi/voicelajifenlei/index',
-    //   method: 'POST',
-    //   header: {
-    //     "Content-Type": "application/x-www-form-urlencoded"
-    //   },
-    //   data: data,
-    //   success: function (res) {
-    //     if (res.data.code == 200) {
-    //       that.setData({
-    //         content: res.data.newslist[0].content
-    //       })
-    //     } else {
-    //       that.setData({
-    //         content: res.data.msg
-    //       })
-    //     }
-    //   },
-    //   fail: function (err) {
-    //     console.log(err)
-    //   }
-    // })
-
-
   },
   play() {
     innerAudioContext = wx.createInnerAudioContext();

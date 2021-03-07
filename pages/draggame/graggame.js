@@ -1,6 +1,6 @@
 // pages/draggame/graggame.js
 import {
-  getRandomGarbage
+  getRandomGarbage, ajaxPOST
 } from '../../utils/util'
 const data = wx.getStorageSync('all_garbage')
 const app = getApp()
@@ -100,6 +100,10 @@ Page({
    */
   onLoad: function (options) {
     this.createGarbage()
+    console.log('load', app.userData.score)
+    this.setData({
+      score: app.userData.score
+    })
   },
 
   /**
@@ -119,15 +123,23 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
+  async onHide() {
+    console.log('hide')
+    const data = {openid: app.userData.openid, score: this.data.score}
+    app.userData.score = this.data.score
+    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
+    console.log(res)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
+  async onUnload() {
+    console.log('unload')
+    const data = {openid: app.userData.openid, score: this.data.score}
+    app.userData.score = this.data.score
+    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
+    console.log(res)
   },
 
   /**

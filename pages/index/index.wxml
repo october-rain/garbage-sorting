@@ -6,7 +6,7 @@
   <home class="page" wx:if="{{PageCur == 'home'}}"></home>
   <category nameData="{{nameData}}" class="page" wx:if="{{PageCur == 'category'}}"></category>
   <game class="page" wx:if="{{PageCur == 'game'}}"></game>
-  <me class="page" wx:if="{{PageCur == 'me'}}"></me>
+  <me class="page" wx:if="{{PageCur == 'me'}}" score="{{userScore}}"></me>
 
   <!-- 下方tab栏 -->
   <view class="cu-bar tabbar foot bg-white shadow">

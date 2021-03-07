@@ -1,10 +1,15 @@
 // pages/me/me.js
 //获取应用实例
 const app = getApp()
-
 Component({
   options: {
     addGlobalClass: true,
+  },
+  properties: {
+    score: {
+      type: Number,
+      default: 100
+    }
   },
   data: {
     StatusBar: app.globalData.StatusBar,
@@ -14,7 +19,7 @@ Component({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
 
-    Score: 10,
+    // score: 10,
   },
   lifetimes: {
     attached(){

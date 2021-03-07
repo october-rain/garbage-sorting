@@ -2,7 +2,7 @@
 <view class="container">
   <view class="info">
     <l-avatar class="l-avatar" shape="circle" open-data="{{['userAvatarUrl']}}" size="50" />
-    <text class="count">{{count}} 积分</text>
+    <text class="count">{{score}} 积分</text>
     <text></text>
   </view>
   <view class="garbage">{{garbageName}}</view>

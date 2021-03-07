@@ -2,6 +2,7 @@
 import {
   ajaxPOST
 } from '../../utils/util'
+const app = getApp()
 Page({
 
   /**
@@ -15,77 +16,49 @@ Page({
   async tapCamera() {
     console.log(1)
     let that = this;
-    let res = await wx.chooseImage({
-      count: 1,
-      success: function (res) {
-        console.log(res)
-        // 无论用户是从相册选择还是直接用相机拍摄，路径都是在这里面
-        let filePath = res.tempFilePaths[0];
-        //将刚才选的照片/拍的 放到下面view视图中
-        that.setData({
-          img_path: filePath, //把照片路径存到变量中，
-          img_hidden: false //让展示照片的view显示
-        })
-
-        // 转 base 64
-        wx.getFileSystemManager().readFile({
-          filePath: filePath, //选择图片返回的相对路径
-          encoding: 'base64', //编码格式
-          success: res => { //成功的回调
-            // console.log('data:image/png;base64,' + res.data)
-
-            const data = {key: '222552c49b9c2c270a34b1614fe25608', img: res.data}
-            wx.request({
-              url: 'https://api.tianapi.com/txapi/imglajifenlei/index',
-              method: 'POST',
-              header: {
-                "Content-Type": "application/x-www-form-urlencoded"
-              },
-              data: data,
-              success: function (res) {
-                if (res.data.code == 200) {
-                  console.log(res.data)
-                  that.setData({
-                    content: res.data.newslist[0].content
-                  })
-                } else {
-                  that.setData({
-                    content: res.data.msg
-                  })
-                }
-              },
-              fail: function (err) {
-                console.log(err)
-              }
-            })
-          }
-        })
-        //以下两行注释的是同步方法，不过我不太喜欢用。
-        //let base64 = wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], 'base64') 
-        //console.log(base64)
-      },
-      fail: function (error) {
-        wx.navigateBack({
-          delta: 1,
-        })
+    let res
+    try {
+      res = await wx.chooseImage({
+        count: 1,
+      });
+      console.log(res)
+      // 无论用户是从相册选择还是直接用相机拍摄，路径都是在这里面
+      let filePath = res.tempFilePaths[0];
+      //将刚才选的照片/拍的 放到下面view视图中
+      that.setData({
+        img_path: filePath, //把照片路径存到变量中，
+        img_hidden: false //让展示照片的view显示
+      })
+      // 以下两行注释的是同步方法， 不过我不太喜欢用。
+      let base64 = wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], 'base64')
+      const data = {
+        base64: base64
       }
-    });
+      const result = await ajaxPOST(app.gUrl, data, 'img_garbage/')
+      console.log(result)
+    } catch (error) {
+      console.log(error)
+    }
 
+    // let res = await wx.chooseImage({
+    //   count: 1,
+    // });
     // console.log(res)
+    // // 无论用户是从相册选择还是直接用相机拍摄，路径都是在这里面
     // let filePath = res.tempFilePaths[0];
     // //将刚才选的照片/拍的 放到下面view视图中
     // that.setData({
     //   img_path: filePath, //把照片路径存到变量中，
     //   img_hidden: false //让展示照片的view显示
     // })
+    // // 以下两行注释的是同步方法， 不过我不太喜欢用。
+    // let base64 = wx.getFileSystemManager().readFileSync(res.tempFilePaths[0], 'base64')
+    // const data = {
+    //   base64: base64
+    // }
+    // const result = await ajaxPOST('http://192.168.1.100:8000/', data, 'img_garbage/')
+    // console.log(result)
 
-    // // 转 base 64
-    // let base64 = wx.getFileSystemManager().readFileSync(filePath, 'base64')
-    // console.log(base64)
-
-    // const data = {key: '222552c49b9c2c270a34b1614fe25608', img: base64}
-    // let ajax = await ajaxPOST('http://api.tianapi.com/txapi/imglajifenlei/index', data)
-    // console.log(ajax)
   },
   TapCameraAgain() {
     this.tapCamera()

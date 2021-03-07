@@ -4,6 +4,8 @@ import {
   formatData
 } from '../../utils/util'
 
+const app = getApp()
+
 Page({
   data: {
     PageCur: 'me',
@@ -15,9 +17,11 @@ Page({
     vBtn: {
       width: 120,
       height: 120
-    }
+    },
+    userScore: 100
   },
   async onLoad(options) {
+    console.log('load')
     let res
     if (!wx.getStorageSync('all_garbage')) {
       res = await ajax('getAllgarbage/')
@@ -33,12 +37,43 @@ Page({
     this.setData({
       nameData: res
     })
-    console.log(this.data.nameData)
+    // console.log(this.data.nameData)
+    let that = this;
+    //判断onLaunch是否执行完毕
+    if (app.userData) {
+      that.setData({
+        userScore: app.userData.score
+      })
+    } else {
+      app.checkLoginReadyCallback = res => {
+        //登陆成功后自己希望执行的，和上面一样
+        console.log(app.userData)
+        that.setData({
+          userScore: app.userData.score
+        })
+      };
+    }
+
   },
-  onShow(){
-    this.setData({
-      popupShow: false
-    })
+  onShow() {
+    console.log('show')
+    let that = this;
+    //判断onLaunch是否执行完毕
+    if (app.userData) {
+      that.setData({
+        userScore: app.userData.score,
+        popupShow: false
+      })
+    } else {
+      app.checkLoginReadyCallback = res => {
+        //登陆成功后自己希望执行的，和上面一样
+        console.log(app.userData)
+        that.setData({
+          userScore: app.userData.score,
+          popupShow: false
+        })
+      }
+    }
   },
   NavChange(e) {
     this.setData({
@@ -65,25 +100,27 @@ Page({
     })
 
   },
-  searchFocus(e){
+  searchFocus(e) {
     this.setData({
       LargeSearchBox: true,
       popupShow: false,
     })
   },
-  searchBlur(){
+  searchBlur() {
     this.setData({
       LargeSearchBox: false,
       popupShow: false,
     })
   },
-  async searchConfirm(e){
+  async searchConfirm(e) {
     console.log(e)
-    const data = {message: e.detail.value}
-    let res = await ajaxPOST('https://ruangong.tian999.top/', data, 'findgarbage/')
+    const data = {
+      message: e.detail.value
+    }
+    let res = await ajaxPOST(app.gUrl, data, 'findgarbage/')
     console.log(res)
   },
-  tapCamera(){
+  tapCamera() {
     this.setData({
       cBtn: {
         width: 110,
@@ -91,7 +128,7 @@ Page({
       }
     })
   },
-  tapVoice(){
+  tapVoice() {
     this.setData({
       vBtn: {
         width: 110,
@@ -99,7 +136,7 @@ Page({
       }
     })
   },
-  tapCameraEnd(){
+  tapCameraEnd() {
     this.setData({
       cBtn: {
         width: 120,
@@ -110,7 +147,7 @@ Page({
       url: '/pages/camera/camera',
     })
   },
-  tapVoiceEnd(){
+  tapVoiceEnd() {
     this.setData({
       vBtn: {
         width: 120,

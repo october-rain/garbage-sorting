@@ -1,8 +1,10 @@
 // pages/dropgame/dropgame.js
 import {
-  getRandomGarbage
+  getRandomGarbage,
+  ajaxPOST, ajax
 } from '../../utils/util'
 const data = wx.getStorageSync('all_garbage')
+const app = getApp()
 // const query = wx.createSelectorQuery()
 let interval
 Page({
@@ -24,6 +26,8 @@ Page({
     this.setData({
       gameControl: this.data.gameControl ? false : true
     })
+    debugger
+    console.log('onControlGameStart')
     this.cycleExecute()
   },
   onControlGameEnd() {
@@ -76,7 +80,9 @@ Page({
     }
   },
   cycleExecute() {
+    console.log('cycleExecute')
     this.createGarbage()
+    console.log('createGarbage')
     // let garbage
     interval = setInterval(() => {
       if (this.data.garbageTop > 80) {
@@ -109,7 +115,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      score: app.userData.score
+    })
   },
 
   /**
@@ -129,15 +137,23 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
+  async onHide() {
+    console.log('hide')
+    const data = {openid: app.userData.openid, score: this.data.score}
+    app.userData.score = this.data.score
+    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
+    console.log(res)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
+  async onUnload() {
+    console.log('unload')
+    const data = {openid: app.userData.openid, score: this.data.score}
+    app.userData.score = this.data.score
+    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
+    console.log(res)
   },
 
   /**

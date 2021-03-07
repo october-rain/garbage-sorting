@@ -1,14 +1,35 @@
-// app.js
 App({
   onLaunch() {
-
     // 登录
     wx.login({
       success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
         console.log(res)
+        const data = {
+          code: res.code
+        }
+        wx.request({
+          url: this.gUrl + 'gar_login/',
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          method: 'POST',
+          data: data,
+          success: res => {
+            console.log(res)
+            this.userData = res.data
+            // 定义回调函数
+            if (this.checkLoginReadyCallback) {
+              this.checkLoginReadyCallback(res);
+            }
+          },
+          fail: res => {
+            console.log(res)
+          }
+        })
       }
     })
+    // console.log(loginRes)
+
 
     // 获取用户信息
     wx.getSetting({
@@ -51,4 +72,6 @@ App({
   globalData: {
     userInfo: null
   },
+  // gUrl: 'http://192.168.1.102:8000/',
+  gUrl: 'https://ruangong.tian999.top/'
 })

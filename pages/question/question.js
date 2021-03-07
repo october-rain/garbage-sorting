@@ -1,13 +1,15 @@
 // pages/question/question.js
 import {
-  getRandomGarbage
+  getRandomGarbage,
+  ajaxPOST
 } from '../../utils/util'
+const app = getApp()
 const data = wx.getStorageSync('all_garbage')
 const map = new Map()
-map.set('1','可回收垃圾')
-map.set('2','干垃圾')
-map.set('3','湿垃圾')
-map.set('4','有害垃圾')
+map.set('1', '可回收垃圾')
+map.set('2', '干垃圾')
+map.set('3', '湿垃圾')
+map.set('4', '有害垃圾')
 
 Page({
 
@@ -15,7 +17,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    count: 0,
+    score: 0,
     garbage: "",
     garbageName: "",
     toastShow: false
@@ -30,26 +32,26 @@ Page({
   },
   selectAnswer(e) {
     const res = map.get(e.currentTarget.dataset.id)
-    if(res === this.data.garbage.classification_name) {
+    if (res === this.data.garbage.classification_name) {
       this.setData({
-        count: this.data.count + 2,
+        score: this.data.score + 2,
         toastShow: true,
         toastTitle: "回答正确 +2 分",
         toastIcon: "success"
       })
     } else {
       this.setData({
-        count: this.data.count - 1,
+        score: this.data.score - 1,
         toastShow: true,
         toastTitle: `回答错误 -1 分, 正确答案是: ${res}`,
         toastIcon: 'error'
       })
     }
-    setTimeout(()=> {
+    setTimeout(() => {
       this.createGarbage()
     }, 200)
   },
-  skip(){
+  skip() {
     this.createGarbage()
   },
   /**
@@ -57,6 +59,9 @@ Page({
    */
   onLoad: function (options) {
     this.createGarbage()
+    this.setData({
+      score: app.userData.score
+    })
   },
 
   /**
@@ -76,15 +81,29 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-
+  async onHide() {
+    console.log('hide')
+    const data = {
+      openid: app.userData.openid,
+      score: this.data.score
+    }
+    app.userData.score = this.data.score
+    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
+    console.log(res)
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-
+  async onUnload() {
+    console.log('unload')
+    const data = {
+      openid: app.userData.openid,
+      score: this.data.score
+    }
+    app.userData.score = this.data.score
+    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
+    console.log(res)
   },
 
   /**

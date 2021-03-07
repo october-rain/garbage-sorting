@@ -8,7 +8,7 @@
         <view class="avatar cu-avatar round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
         <view class="text">
           <view class="name">{{userInfo.nickName}}</view>
-          <view class="socre">积分：{{Score}}</view>
+          <view class="socre">积分：{{score}}</view>
         </view>
       </view>
       <button class="cu-btn lg" bind:tap="selectAnswer">
