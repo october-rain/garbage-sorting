@@ -3,4 +3,5 @@
 }
 .cu-timeline > .cu-item > .content{
   margin-right: 40rpx;
+  padding-left: 40rpx;
 }

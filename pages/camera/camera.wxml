@@ -2,10 +2,23 @@
 <view class="container">
   <image mode="aspectFit" class="garbage-img" src="{{img_path}}"></image>
 
-  <view></view>
+  <view class="res-container">
+    <block wx:for="{{garbage_data}}" wx:key="index">
+      <view
+        class="content {{item.lajitype === 0 ? 'bg-green' : ''}} {{item.lajitype === 3 ? 'bg-yellow' : ''}} {{item.lajitype === 2 ? 'bg-blue' : ''}} {{item.lajitype === 1 ? 'bg-red' : ''}} {{item.lajitype === 4 ? 'bg-grey' : ''}}">
+        <text class="name">
+          {{item.name}}
+        </text>
+        <text class="classification_name">
+          {{item.classification}}
+        </text>
+      </view>
+    </block>
+
+  </view>
 
   <button class="cu-btn block lg" bind:tap="TapCameraAgain">
-    <text class="my-icon cuIcon-camerafill"></text> 
+    <text class="my-icon cuIcon-camerafill"></text>
     <text>再来一张</text>
   </button>
 </view>

@@ -8,7 +8,7 @@ const app = getApp()
 
 Page({
   data: {
-    PageCur: 'me',
+    PageCur: 'home',
     popupShow: false,
     cBtn: {
       width: 120,
@@ -18,7 +18,9 @@ Page({
       width: 120,
       height: 120
     },
-    userScore: 100
+    userScore: 100,
+    LargeSearchBox: false,
+    hotShow: true 
   },
   async onLoad(options) {
     console.log('load')
@@ -119,6 +121,15 @@ Page({
     }
     let res = await ajaxPOST(app.gUrl, data, 'findgarbage/')
     console.log(res)
+    this.setData({
+      hotShow:false,
+      searchData: res.data
+    })
+  },
+  searchClear(){
+    this.setData({
+      hotShow: true
+    })
   },
   tapCamera() {
     this.setData({

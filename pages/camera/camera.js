@@ -4,7 +4,6 @@ import {
 } from '../../utils/util'
 const app = getApp()
 Page({
-
   /**
    * 页面的初始数据
    */
@@ -35,7 +34,14 @@ Page({
         base64: base64
       }
       const result = await ajaxPOST(app.gUrl, data, 'img_garbage/')
-      console.log(result)
+      console.log(result.data)
+      result.data.forEach(element => {
+        const res = that.recognizeGarbage(element.lajitype)
+        element.classification = res
+      });
+      that.setData({
+        garbage_data: result.data
+      })
     } catch (error) {
       console.log(error)
     }
@@ -62,6 +68,20 @@ Page({
   },
   TapCameraAgain() {
     this.tapCamera()
+  },
+  recognizeGarbage(type){
+    switch (type) {
+      case 0:
+        return '可回收垃圾'
+      case 1: 
+        return '有害垃圾'
+      case 2: 
+        return '湿垃圾'
+      case 3: 
+        return '干垃圾'
+      case 4:
+        return '无法识别'
+    }
   },
   /**
    * 生命周期函数--监听页面加载

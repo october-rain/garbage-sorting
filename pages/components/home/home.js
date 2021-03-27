@@ -14,8 +14,8 @@ Component({
       url: '/image/swiper/man-woman-putting-garbage-containers-illustration-sorting-recycling-waste-concept.jpg'
     }, {
       id: 1,
-        type: 'image',
-        url: '/image/swiper/family-mother-father-son-face-masks-holding-happy-smiling-planet-earth.jpg',
+      type: 'image',
+      url: '/image/swiper/family-mother-father-son-face-masks-holding-happy-smiling-planet-earth.jpg',
     }, {
       id: 2,
       type: 'image',
@@ -50,6 +50,19 @@ Component({
     cardSwiper(e) {
       this.setData({
         cardCur: e.detail.current
+      })
+    },
+    //滚动过程中触发
+    scroll(e) {
+      // console.log(e.detail.scrollTop)
+      this.setData({
+        scrollTop: e.detail.scrollTop
+      });
+    },
+    changeScrollTop(e) {
+      // console.log(e)
+      this.setData({
+        toView: e.detail.scrollPageToLocation - 60
       })
     }
   }

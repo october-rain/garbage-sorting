@@ -11,10 +11,30 @@
   border-radius: 60rpx;
 }
 
+.res-container {
+  /* border: 1px solid red; */
+  width: 80vw;
+}
 
+.content {
+  border-radius: 10rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+  padding: 0rpx 60rpx 50rpx;
+  margin: 16rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 32rpx;
+  height: 90rpx;
+
+}
+
+.content text {
+  height: 60rpx;
+}
 
 .cu-btn{
-  margin-top: 50rpx;
+  margin-top: 30rpx;
   /* border: 1rpx solid red; */
   border-radius: 30rpx;
   box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);

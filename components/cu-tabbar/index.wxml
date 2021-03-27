@@ -1,5 +1,5 @@
 <view class="cu-custom" style="height:{{CustomBar}}px">
-  <view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} {{bgColor}}"
+  <view class="cu-bar fixed {{bgImage!=''?'none-bg text-white bg-img':''}} themeColor"
     style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;{{bgImage?'background-image:url(' + bgImage+')':''}}">
     <!-- menu slot -->
     <view class="action" wx:if="{{isMenu}}">

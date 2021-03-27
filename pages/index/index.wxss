@@ -20,7 +20,7 @@ page {
   transform-origin: 0;
 }
 
-/* 
+
 .DrawerWindow {
   position: absolute;
   width: 85vw;
@@ -63,9 +63,10 @@ page {
   pointer-events: all;
   width: 15vw;
   color: #fff;
-} */
+}
 
 .popup-container{
+  position: relative;
   background: #fff;
   width: 500rpx;
   height: 340rpx;
@@ -73,7 +74,15 @@ page {
   border-radius: 20rpx;
   padding: 30rpx 10rpx 0 10rpx;
   box-shadow:0 8rpx 27rpx 6rpx rgba(0, 0, 0, .42);
+}
 
+.mask {
+  width: 64vw;
+  height: 80rpx;
+  /* border: 1px solid red; */
+  position: absolute;
+  top: 20rpx;
+  z-index: 100;
 }
 
 .popup-large-container{
@@ -135,7 +144,7 @@ page {
   width: 600rpx !important;
   height: 100rpx !important;
 }
-.hotSearch {
+.hot-search {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -144,6 +153,22 @@ page {
   line-height: 50rpx;
 }
 
-.hotSearch text {
+.hot-search text {
   margin-right: 20rpx;
+}
+
+.search-datas {
+
+}
+
+.search-data {
+  /* background-color: #eee; */
+  /* border: 1rpx solid red; */
+  border-radius: 30rpx;
+  box-shadow: 0rpx 0rpx 10rpx 2rpx rgba(0, 0, 0, 0.3);
+  margin-top: 30rpx;
+  width: 560rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 50rpx;
 }

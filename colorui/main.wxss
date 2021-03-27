@@ -18,8 +18,8 @@ page {
 	--yellow: #fbbd08;
 	--olive: #8dc63f;
 	--green: #39b54a;
-	--cyan: #1cbbb4;
-	--blue: #0081ff;
+	--cyan: #3eb7ff;
+	--blue: #3eb7ff;
 	--purple: #6739b6;
 	--mauve: #9c26b0;
 	--pink: #e03997;
@@ -3460,6 +3460,11 @@ scroll-view.cu-steps .cu-item {
 .bg-cyan {
 	background-color: var(--cyan);
 	color: var(--white);
+}
+.bg-theme {
+	background-color: var(--white);
+	color: var(--black);
+	border: 1rpx solid #3eb7ff;
 }
 
 .bg-blue {

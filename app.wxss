@@ -5,6 +5,15 @@
   height: 100vh;
 }
 
+.themeColor{
+  /* background-color: #36ccae; */
+  /* background-color: #8bbe6f; */
+  background-color: #3eb7ff;
+  /* background-color: #2c2c2c; */
+  /* background-color: #0163ec; */
+
+}
+
 @font-face {font-family: "iconfont";
   src: url('iconfont.eot?t=1614241142930'); /* IE9 */
   src: url('iconfont.eot?t=1614241142930#iefix') format('embedded-opentype'), /* IE6-IE8 */

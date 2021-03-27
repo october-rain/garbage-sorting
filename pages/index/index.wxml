@@ -11,26 +11,26 @@
   <!-- 下方tab栏 -->
   <view class="cu-bar tabbar foot bg-white shadow">
     <view class="action" bindtap="NavChange" data-cur="home">
-      <view class="cuIcon-homefill {{PageCur=='home'?'text-green':'text-gray'}}"></view>
-      <view class="{{PageCur=='home'?'text-green':'text-gray'}}">首页</view>
+      <view class="cuIcon-homefill {{PageCur=='home'?'text-blue':'text-gray'}}"></view>
+      <view class="{{PageCur=='home'?'text-blue':'text-gray'}}">首页</view>
     </view>
     <view class="action" bindtap="NavChange" data-cur="category">
-      <view class="cuIcon-similar {{PageCur=='category'?'text-green':'text-gray'}}"></view>
-      <view class="{{PageCur=='category'?'text-green':'text-gray'}}">分类</view>
+      <view class="cuIcon-similar {{PageCur=='category'?'text-blue':'text-gray'}}"></view>
+      <view class="{{PageCur=='category'?'text-blue':'text-gray'}}">分类</view>
     </view>
     <view bind:tap="onShowPopupTap" class="action text-gray add-action">
-      <button class="cu-btn cuIcon-add bg-blue shadow"></button>
+      <button class="cu-btn cuIcon-add bg-cyan shadow"></button>
       识别
     </view>
     <view class="action" bindtap="NavChange" data-cur="game">
-      <view class="cuIcon-game {{PageCur=='game'?'text-green':'text-gray'}}">
+      <view class="cuIcon-game {{PageCur=='game'?'text-blue':'text-gray'}}">
       </view>
-      <view class="{{PageCur=='game'?'text-green':'text-gray'}}">游戏</view>
+      <view class="{{PageCur=='game'?'text-blue':'text-gray'}}">游戏</view>
     </view>
     <view class="action" bindtap="NavChange" data-cur="me">
-      <view class="cuIcon-my {{PageCur=='me'?'text-green':'text-gray'}}">
+      <view class="cuIcon-my {{PageCur=='me'?'text-blue':'text-gray'}}">
       </view>
-      <view class="{{PageCur=='me'?'text-green':'text-gray'}}">我的</view>
+      <view class="{{PageCur=='me'?'text-blue':'text-gray'}}">我的</view>
     </view>
   </view>
 
@@ -41,10 +41,13 @@
 <!-- popup -->
 <l-popup show="{{popupShow}}" content-align="center">
   <view class="popup-container">
-    <l-search-bar bind:linfocus="searchFocus" focus="{{false}}" show-cancel="{{false}}"/>
+    <l-search-bar focus="{{false}}" show-cancel="{{false}}" />
+    <view class="mask" bind:tap="searchFocus"></view>
     <view class='popup-btn'>
-      <view bind:touchstart="tapCamera" bind:touchend="tapCameraEnd" class="icon cuIcon-camerafill" style="width:{{cBtn.width}}rpx;height:{{cBtn.height}}rpx;"></view>
-      <view bind:touchstart="tapVoice" bind:touchend="tapVoiceEnd" class="icon cuIcon-voicefill" style="width:{{vBtn.width}}rpx;height:{{vBtn.height}}rpx;"></view>
+      <view bind:touchstart="tapCamera" bind:touchend="tapCameraEnd" class="icon cuIcon-camerafill"
+        style="width:{{cBtn.width}}rpx;height:{{cBtn.height}}rpx;"></view>
+      <view bind:touchstart="tapVoice" bind:touchend="tapVoiceEnd" class="icon cuIcon-voicefill"
+        style="width:{{vBtn.width}}rpx;height:{{vBtn.height}}rpx;"></view>
     </view>
   </view>
 </l-popup>
@@ -54,17 +57,9 @@
   l-enter-active-class="lin-enter-active-class" l-leave-active-class="lin-leave-active-class"
   l-enter-class="lin-enter-class" l-leave-to-class="lin-leave-to-class">
   <!-- <l-status show type="cart" full-screen="{{false}}" bind:lintap="closeCase" data-name="1"/> -->
-  <l-search-bar bind:linconfirm="searchConfirm" l-container-class="ex-search-bar" bind:lincancel="searchBlur"/>
-  <view class="hotSearch">
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text> 
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text> 
+  <l-search-bar bind:linconfirm="searchConfirm" bind:lincancel="searchBlur" bind:linclear="searchClear"
+    l-container-class="ex-search-bar" focus="{{LargeSearchBox}}" />
+  <view wx:if="{{hotShow}}" class="hot-search">
     <text>干电池</text>
     <text>干电池</text>
     <text>干电池</text>
@@ -77,5 +72,20 @@
     <text>干电池</text>
     <text>干电池</text>
     <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+    <text>干电池</text>
+  </view>
+  <view wx:else class="search-datas">
+    <view wx:for="{{searchData}}" wx:key="index"
+      class="search-data {{item.classification_name == '可回收垃圾' ? 'bg-green' : ''}} {{item.classification_name == '干垃圾' ? 'bg-yellow' : ''}} {{item.classification_name == '湿垃圾' ? 'bg-blue' : ''}} {{item.classification_name == '有害垃圾' ? 'bg-red' : ''}}">
+      {{item.garbage_name}}
+    </view>
   </view>
 </l-transition>
