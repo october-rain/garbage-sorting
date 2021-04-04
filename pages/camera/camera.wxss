@@ -34,7 +34,7 @@
 }
 
 .cu-btn{
-  margin-top: 30rpx;
+  margin-top: 100rpx;
   /* border: 1rpx solid red; */
   border-radius: 30rpx;
   box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);

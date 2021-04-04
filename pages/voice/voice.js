@@ -9,7 +9,9 @@ Page({
    */
   data: {
     btnWidth: 180,
-    btnHeight: 180
+    btnHeight: 180,
+    voiceMsg: '识别结果',
+    isRecord: true
   },
   tapBtnStart() {
     this.setData({
@@ -50,26 +52,54 @@ Page({
       //     console.log(result)
       //   }
       // })
-      
+      // console.log(res.tempFilePath)
       wx.uploadFile({
         url: app.gUrl + 'yuyin_garbage/',
         filePath: res.tempFilePath,
         name: 'filename',
-        success (res){
-          const data = res.data
-          //do something
-          console.log(res)
+        success(res) {
+          const data = {
+            message: res.data
+          }
+          wx.request({
+            url: app.gUrl + 'findgarbage/',
+            method: 'POST',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            data: data,
+            success: function(e){
+              console.log(e.data)
+              const len = e.data.length
+              if(len < 1) {
+                that.setData({
+                  voiceMsg: "没找到！换个词试试"
+                })
+              } else if(e.data.length > 10) {
+                that.setData({
+                  voiceMsg: "没听清哦！"
+                })
+              } else {
+                that.setData({
+                  garbageMsg: e.data,
+                  voiceMsg: data.message,
+                  isRecord: false
+                })
+              }
+            },
+            fail: function(e){
+              console.log(e)
+            }
+          })
         }
       })
     });
   },
-  play() {
-    innerAudioContext = wx.createInnerAudioContext();
-    innerAudioContext.onError((res) => {
-      console.error(res)
+  TapVoiceAgain(){
+    this.setData({
+      isRecord: true,
+      // voiceMsg: "识别结果"
     })
-    innerAudioContext.src = this.data.audioSrc; // 这里可以是录音的临时路径
-    innerAudioContext.play()
-  },
+  }
 
 })

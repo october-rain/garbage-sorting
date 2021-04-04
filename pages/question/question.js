@@ -43,7 +43,7 @@ Page({
       this.setData({
         score: this.data.score - 1,
         toastShow: true,
-        toastTitle: `回答错误 -1 分, 正确答案是: ${res}`,
+        toastTitle: `回答错误 -1 分, 正确答案是: ${this.data.garbage.classification_name}`,
         toastIcon: 'error'
       })
     }

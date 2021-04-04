@@ -1,8 +1,19 @@
 <!--pages/voice/voice.wxml-->
 <view class="container">
-  <view class="content">识别结果</view>
-  <view class="btn-container" style="width:{{btnWidth}}rpx;height:{{btnHeight}}rpx;" bind:touchstart="tapBtnStart" bind:touchend="tapBtnEnd">
+  <view class="content">{{voiceMsg}}</view>
+  <view wx:if="{{isRecord}}" class="btn-container" style="width:{{btnWidth}}rpx;height:{{btnHeight}}rpx;"
+    bind:touchstart="tapBtnStart" bind:touchend="tapBtnEnd">
     <view class="wave" style="width:{{btnWidth}}rpx;height:{{btnHeight}}rpx;"></view>
   </view>
-  <view bind:tap="play">play</view>
+  <view wx:else>
+    <view wx:for="{{garbageMsg}}" wx:key="index"
+      class="search-data {{item.classification_name == '可回收垃圾' ? 'bg-green' : ''}} {{item.classification_name == '干垃圾' ? 'bg-yellow' : ''}} {{item.classification_name == '湿垃圾' ? 'bg-blue' : ''}} {{item.classification_name == '有害垃圾' ? 'bg-red' : ''}}">
+      {{item.garbage_name}}
+    </view>
+    <button class="cu-btn block lg" bind:tap="TapVoiceAgain">
+      <text class="my-icon cuIcon-camerafill"></text>
+      <text>重新询问</text>
+    </button>
+  </view>
+  <!-- <view bind:tap="play">play</view> -->
 </view>

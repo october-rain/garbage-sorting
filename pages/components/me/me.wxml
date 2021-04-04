@@ -15,7 +15,7 @@
         <text class="my-icon cuIcon-selection text-blue"></text>
         <text>我的排名</text>
       </button>
-      <button class="cu-btn lg" bind:tap="selectAnswer">
+      <button class="cu-btn lg" bind:tap="selectAnswer" open-type='feedback'>
         <text class="my-icon cuIcon-message text-orange"></text>
         <text>意见反馈</text>
       </button>

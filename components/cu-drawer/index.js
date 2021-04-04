@@ -59,37 +59,34 @@ Component({
     }, 
     deleteNote(e){
       const index = e.currentTarget.dataset.id
-      this.data.notes.splice(index, 1)
-      this.setData({
-        notes: this.data.notes
-      })
+      if(this.data.notes.length > 1) {
+        this.data.notes.splice(index, 1)
+        this.setData({
+          notes: this.data.notes
+        })
+      } else {
+        this.setData({
+          notes: []
+        })
+      }
     },
-    inputValue(e){
-      console.log(e)
-    },
+    // inputValue(e){
+    //   console.log(e)
+    // },
     inputBlur(e){
       console.log(e.detail.value)
-      this.data.notes.push(e.detail.value)
+      this.data.inputValue = e.detail.value
+      e.detail.value = ''
+      // this.data.notes.push(e.detail.value)
     },
     onConfirmTap(e){
-      // setTimeout(() => {
-      //   wx.showToast({
-      //     title: '点击了确定～',
-      //     icon: 'none'
-      //   });
-      // }, 100);
+      this.data.notes.push(this.data.inputValue)
       this.setData({
-        notes: this.data.notes
+        notes: this.data.notes 
       })
     },
     // 取消按钮
     onCancelTap() {
-      // setTimeout(()=> {
-      //   wx.showToast({
-      //     title: '点击了取消～',
-      //     icon: 'none'
-      //   });
-      // },100);
     },
   }
 })

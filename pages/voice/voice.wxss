@@ -79,3 +79,22 @@ view {
       transform: translate(-50%, -70%) rotate(360deg);
   }
 }
+
+.search-data {
+  /* background-color: #eee; */
+  /* border: 1rpx solid red; */
+  border-radius: 30rpx;
+  box-shadow: 0rpx 0rpx 10rpx 2rpx rgba(0, 0, 0, 0.3);
+  margin-top: 30rpx;
+  width: 560rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  padding-left: 50rpx;
+}
+
+.cu-btn{
+  margin-top: 30rpx;
+  /* border: 1rpx solid red; */
+  border-radius: 30rpx;
+  box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
+}

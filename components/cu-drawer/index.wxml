@@ -12,28 +12,11 @@
         <text data-id="{{index}}" class="cuIcon-roundclose text-red" bind:tap="deleteNote"></text>
       </view>
     </view>
-
-
-    <!-- <l-slide-view wx:for="{{2}}" wx:key="index"></l-slide-view> -->
-    <!-- <block wx:for="{{noteCount}}" wx:key="index">
-      <l-slide-view class="item cu-item" height="140" width="520" slide-width="250" bindlintap="onSlideTap" auto-close="true">
-        <view slot="left" class="left">
-          <view class='left-content'>
-            <text class='left-title'>干电池属于干垃圾</text>
-          </view>
-        </view>
-        <view slot="right" class="right">
-          <text>编辑</text>
-          <text>删除</text>
-        </view>
-      </l-slide-view>
-    </block> -->
-
   </view>
 </scroll-view>
 
 
 <!-- pupop -->
 <l-dialog l-class="dialog" show="{{dialogShow}}" type="confirm" title-text="记录你的学习吧！" cancel-color="#999" confirm-color="#3683d6" bind:lincancel="onCancelTap" bind:linconfirm="onConfirmTap">
-  <l-input placeholder="干电池属于干垃圾" hide-label="{{true}}" showRow="{{false}}" bind:lininput="inputValue" bind:linblur="inputBlur"/>
+  <l-input placeholder="干电池属于干垃圾" hide-label="{{true}}" showRow="{{false}}"  bind:linblur="inputBlur" clear/>
 </l-dialog>

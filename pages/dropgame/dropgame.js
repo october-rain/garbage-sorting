@@ -26,7 +26,7 @@ Page({
     this.setData({
       gameControl: this.data.gameControl ? false : true
     })
-    debugger
+    // debugger
     console.log('onControlGameStart')
     this.cycleExecute()
   },
