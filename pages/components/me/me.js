@@ -25,6 +25,7 @@ Component({
     attached(){
       // console.log("me")
       if (app.globalData.userInfo) {
+        // console.log('xx', app.globalData.userInfo)
         this.setData({
           userInfo: app.globalData.userInfo,
           hasUserInfo: true
