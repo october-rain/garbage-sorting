@@ -5,7 +5,7 @@
   <view class="res-container">
     <block wx:for="{{garbage_data}}" wx:key="index">
       <view
-        class="content {{item.lajitype === 0 ? 'bg-green' : ''}} {{item.lajitype === 3 ? 'bg-yellow' : ''}} {{item.lajitype === 2 ? 'bg-blue' : ''}} {{item.lajitype === 1 ? 'bg-red' : ''}} {{item.lajitype === 4 ? 'bg-grey' : ''}}">
+        class="content {{item.lajitype === 0 ? 'bg-recycle' : ''}} {{item.lajitype === 3 ? 'bg-dry' : ''}} {{item.lajitype === 2 ? 'bg-wet' : ''}} {{item.lajitype === 1 ? 'bg-harm' : ''}} {{item.lajitype === 4 ? 'bg-grey' : ''}}">
         <text class="name">
           {{item.name}}
         </text>

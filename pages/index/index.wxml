@@ -60,27 +60,15 @@
   <l-search-bar bind:linconfirm="searchConfirm" bind:lincancel="searchBlur" bind:linclear="searchClear"
     l-container-class="ex-search-bar" focus="{{LargeSearchBox}}" />
   <view wx:if="{{hotShow}}" class="hot-search">
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
-    <text>干电池</text>
+    <text class="harm">干电池</text>
+    <text class="recycle">塑料瓶</text>
+    <text class="recycle">太阳镜</text>
+    <text class="dry">外卖盒</text>
+    <text class="wet">八宝粥</text>
+    <text class="wet">果皮</text>
+    <text class="recycle">废纸</text>
+    <text class="wet">菜叶</text>
+    <text class="recycle">耳钉</text>
   </view>
   <view wx:else class="search-datas">
     <view wx:for="{{searchData}}" wx:key="index"

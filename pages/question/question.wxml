@@ -7,16 +7,16 @@
   </view>
   <view class="garbage">{{garbageName}}</view>
   <view class="options">
-    <button data-id="1" class="cu-btn block lg bg-blue" bind:tap="selectAnswer">
+    <button data-id="1" class="cu-btn block lg bg-recycle" bind:tap="selectAnswer">
       可回收垃圾
     </button>
-    <button data-id="2" class="cu-btn block lg bg-green" bind:tap="selectAnswer">
+    <button data-id="2" class="cu-btn block lg bg-dry" bind:tap="selectAnswer">
       干垃圾
     </button>
-    <button data-id="3" class="cu-btn block lg bg-orange" bind:tap="selectAnswer">
+    <button data-id="3" class="cu-btn block lg bg-wet" bind:tap="selectAnswer">
       湿垃圾
     </button>
-    <button data-id="4" class="cu-btn block lg bg-red" bind:tap="selectAnswer">
+    <button data-id="4" class="cu-btn block lg bg-harm" bind:tap="selectAnswer">
       有害垃圾
     </button>
     <view class="skip bg-blue light" bind:tap="skip">跳过</view>

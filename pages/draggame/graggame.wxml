@@ -13,12 +13,12 @@
 
   <view class="classification">
     <view class="column">
-      <text class="garbage recycle icon iconfont icon-kehuishouwu bg-blue"></text>
-      <text class="garbage poisonous icon iconfont icon-youhailaji bg-red"></text>
+      <text class="garbage recycle icon iconfont icon-kehuishouwu recycle"></text>
+      <text class="garbage poisonous icon iconfont icon-youhailaji harm"></text>
     </view>
     <view class="column">
-      <text class="garbage wet icon iconfont icon-shilaji bg-brown"></text>
-      <text class="garbage dry icon iconfont icon-ganlaji bg-black"></text>
+      <text class="garbage wet icon iconfont icon-shilaji wet"></text>
+      <text class="garbage dry icon iconfont icon-ganlaji dry"></text>
     </view>
   </view>
 

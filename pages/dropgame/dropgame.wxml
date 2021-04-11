@@ -5,10 +5,10 @@
   </view>
   <view class="bottom">
     <view class="classification">
-      <text class="garbage icon iconfont icon-kehuishouwu bg-blue"></text>
-      <text class="garbage icon iconfont icon-shilaji bg-brown"></text>
-      <text class="garbage icon iconfont icon-ganlaji bg-black"></text>
-      <text class="garbage icon iconfont icon-youhailaji bg-red"></text>
+      <text class="garbage icon iconfont icon-kehuishouwu recycle"></text>
+      <text class="garbage icon iconfont icon-shilaji wet"></text>
+      <text class="garbage icon iconfont icon-ganlaji dry"></text>
+      <text class="garbage icon iconfont icon-youhailaji harm"></text>
     </view>
     <view class="control-bar">
       <l-avatar class="l-avatar" shape="circle" open-data="{{['userAvatarUrl']}}" size="50" />

@@ -5,7 +5,8 @@
       class='login cu-btn round bg-green shadow'> 获取头像昵称 </button>
     <view wx:else class="show">
       <view class='basic-info text-center bg-white radius shadow'>
-        <view class="avatar cu-avatar round solids" style="background-image:url({{userInfo.avatarUrl}})"></view>
+        <!-- <view class="avatar cu-avatar round solids" style="background-image:url({{userInfo.avatarUrl}})"></view> -->
+        <l-avatar class="l-avatar" shape="circle" open-data="{{['userAvatarUrl']}}" size="160" />
         <view class="text">
           <view class="name">{{userInfo.nickName}}</view>
           <view class="socre">积分：{{score}}</view>

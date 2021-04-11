@@ -42,6 +42,27 @@ page, .container {
   justify-content: space-between;
 }
 
+
+.harm {
+  color: white;
+  background: #ff5f76;
+}
+
+.recycle {
+  color: white;
+  background: #66b8ff;
+}
+
+.dry {
+  color: white;
+  background: #524a68;
+}
+
+.wet {
+  color: white;
+  background: #60d0c0;
+}
+
 .column{
   display: flex;
   justify-content: space-between;

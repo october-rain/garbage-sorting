@@ -3432,6 +3432,27 @@ scroll-view.cu-steps .cu-item {
 	border-color: var(--white);
 }
 
+
+.bg-harm {
+  color: white;
+  background: #ff5f76;
+}
+
+.bg-recycle {
+  color: white;
+  background: #66b8ff;
+}
+
+.bg-dry {
+  color: white;
+  background: #524a68;
+}
+
+.bg-wet {
+  color: white;
+  background: #60d0c0;
+}
+
 .bg-red {
 	background-color: var(--red);
 	color: var(--white);

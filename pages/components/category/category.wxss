@@ -38,16 +38,16 @@ l-index-list{
   padding: 5rpx 8rpx;
 }
 .garbage1 {
-  border: 1rpx solid red;
+  border: 1rpx solid #66b8ff;
 }
 .garbage2 {
-  border: 1rpx solid blue;
+  border: 1rpx solid #524a68;
 }
 .garbage3 {
-  border: 1rpx solid green;
+  border: 1rpx solid #60d0c0;
 }
 .garbage4 {
-  border: 1rpx solid yellow;
+  border: 1rpx solid #ff5f76;
 }
 
 .sidebar-class{

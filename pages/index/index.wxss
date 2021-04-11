@@ -148,13 +148,31 @@ page {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 30rpx 100rpx;
-  line-height: 50rpx;
+  font-size: 32rpx;
+  line-height: 70rpx;
 }
 
 .hot-search text {
-  margin-right: 20rpx;
+  margin: 10rpx 30rpx 10rpx 0;
+  padding: 0 10rpx;
+  border-radius: 10rpx;
+}
+.hot-search .harm {
+  border: 2rpx solid #ff5f76;
+}
+
+.hot-search .recycle {
+  border: 2rpx solid #66b8ff;
+}
+
+.hot-search .dry {
+  border: 2rpx solid #524a68;
+}
+
+.hot-search .wet {
+  border: 2rpx solid #60d0c0;
 }
 
 .search-datas {
