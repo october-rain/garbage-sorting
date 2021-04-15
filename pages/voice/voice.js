@@ -58,44 +58,62 @@ Page({
         filePath: res.tempFilePath,
         name: 'filename',
         success(res) {
-          const data = {
-            message: res.data
+          let data = JSON.parse(res.data)
+          console.log(data)
+          const message = data.message
+          data = data.data 
+          const len = data.length
+          if (len < 1) {
+            that.setData({
+              voiceMsg: "没找到！换个词试试"
+            })
+          } else if (len > 10) {
+            that.setData({
+              voiceMsg: "没听清哦！"
+            })
+          } else {
+            that.setData({
+              garbageMsg: data,
+              voiceMsg: message,
+              isRecord: false
+            })
           }
-          wx.request({
-            url: app.gUrl + 'findgarbage/',
-            method: 'POST',
-            header: {
-              "Content-Type": "application/x-www-form-urlencoded"
-            },
-            data: data,
-            success: function(e){
-              console.log(e.data)
-              const len = e.data.length
-              if(len < 1) {
-                that.setData({
-                  voiceMsg: "没找到！换个词试试"
-                })
-              } else if(e.data.length > 10) {
-                that.setData({
-                  voiceMsg: "没听清哦！"
-                })
-              } else {
-                that.setData({
-                  garbageMsg: e.data,
-                  voiceMsg: data.message,
-                  isRecord: false
-                })
-              }
-            },
-            fail: function(e){
-              console.log(e)
-            }
-          })
+          // wx.request({
+          //   url: app.gUrl + 'findgarbage/',
+          //   method: 'POST',
+          //   header: {
+          //     "Content-Type": "application/x-www-form-urlencoded"
+          //   },
+          //   data: data,
+          //   success: function(e){
+          //     console.log(e)
+          // const len = e.data.length
+          // if(len < 1) {
+          //   that.setData({
+          //     voiceMsg: "没找到！换个词试试"
+          //   })
+          // } else if(e.data.length > 10) {
+          //   that.setData({
+          //     voiceMsg: "没听清哦！"
+          //   })
+          // } else {
+          //   that.setData({
+          //     garbageMsg: e.data,
+          //     voiceMsg: data.message,
+          //     isRecord: false
+          //   })
+          // }
+          //   },
+          //   fail: function(e){
+          //     console.log(e)
+          //   }
+          // })
+
         }
       })
     });
   },
-  TapVoiceAgain(){
+  TapVoiceAgain() {
     this.setData({
       isRecord: true,
       // voiceMsg: "识别结果"

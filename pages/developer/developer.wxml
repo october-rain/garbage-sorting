@@ -1,0 +1,12 @@
+<!--pages/developer/developer.wxml-->
+<view class="container">
+  <view class="logo-container">
+    <image class="logo" mode="aspectFill" src="../../image/logo.png"></image>
+    <view class="name">物尽 · 其用</view>
+  </view>
+
+  <view class="info">
+    <view class="version">version: 1.0.0</view>
+    <view class="group">武汉理工 · 物尽团队</view>
+  </view>
+</view>

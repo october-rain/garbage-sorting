@@ -3489,7 +3489,7 @@ scroll-view.cu-steps .cu-item {
 }
 
 .bg-blue {
-	background-color: var(--blue);
+	background-color: #3eb7ff;
 	color: var(--white);
 }
 

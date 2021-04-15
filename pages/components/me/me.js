@@ -24,6 +24,7 @@ Component({
   lifetimes: {
     attached(){
       // console.log("me")
+      console.log(app.globalData)
       if (app.globalData.userInfo) {
         // console.log('xx', app.globalData.userInfo)
         this.setData({
@@ -58,11 +59,55 @@ Component({
   },
   methods: {
     getUserInfo: function(e) {
-      console.log(e)
-      app.globalData.userInfo = e.detail.userInfo
-      this.setData({
-        userInfo: e.detail.userInfo,
-        hasUserInfo: true
+      // console.log(e)
+      // app.globalData.userInfo = e.detail.userInfo
+      // this.setData({
+      //   userInfo: e.detail.userInfo,
+      //   hasUserInfo: true
+      // })
+      wx.getUserProfile({
+        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          console.log(res)
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+          wx.setStorage({
+            data: res.userInfo,
+            key: 'userInfo',
+          })
+          console.log(app.userData.User)
+          if(!app.userData.User) {
+            const registerData = {
+              openid: app.userData.openid,
+              name: res.userInfo.nickName,
+              url: res.userInfo.avatarUrl
+            }
+            wx.request({
+              url: app.gUrl + 'set_user/',
+              data: registerData,
+              method: 'POST',
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              success: res => {
+                console.log(res)
+              }
+            })
+          }
+        }
+      })
+    },
+    goToRank: function(){
+      wx.navigateTo({
+        url: '/pages/rate/rate',
+      })
+    },
+    goToDeveloper(){
+      wx.navigateTo({
+        url: '/pages/developer/developer',
       })
     }
   }

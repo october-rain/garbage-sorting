@@ -1,0 +1,41 @@
+/* pages/developer/developer.wxss */
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.logo {
+  width: 500rpx;
+}
+
+.name {
+  font-size: 84rpx;
+  font-weight: 800;
+  color: #3eb7ff;
+}
+
+.info {
+  font-size: 34rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.version {
+  margin-bottom: 30rpx;
+}
+
+.group {
+  font-weight: 600;
+}

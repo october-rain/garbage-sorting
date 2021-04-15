@@ -29,6 +29,8 @@ Page({
       res = await ajax('getAllgarbage/')
       console.log(res)
       res = formatData(res.data)
+      // res = res.data
+      // console.log(res)
       wx.setStorage({
         data: res,
         key: 'all_garbage',

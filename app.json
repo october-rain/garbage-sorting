@@ -5,7 +5,9 @@
     "pages/draggame/graggame",
     "pages/question/question",
     "pages/camera/camera",
-    "pages/voice/voice"
+    "pages/voice/voice",
+    "pages/rate/rate",
+    "pages/developer/developer"
   ],
   "window": {
     "backgroundTextStyle": "light",

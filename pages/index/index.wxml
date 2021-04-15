@@ -72,7 +72,7 @@
   </view>
   <view wx:else class="search-datas">
     <view wx:for="{{searchData}}" wx:key="index"
-      class="search-data {{item.classification_name == '可回收垃圾' ? 'bg-green' : ''}} {{item.classification_name == '干垃圾' ? 'bg-yellow' : ''}} {{item.classification_name == '湿垃圾' ? 'bg-blue' : ''}} {{item.classification_name == '有害垃圾' ? 'bg-red' : ''}}">
+      class="search-data {{item.classification_name == '可回收垃圾' ? 'bg-recycle' : ''}} {{item.classification_name == '干垃圾' ? 'bg-dry' : ''}} {{item.classification_name == '湿垃圾' ? 'bg-wet' : ''}} {{item.classification_name == '有害垃圾' ? 'bg-harm' : ''}}">
       {{item.garbage_name}}
     </view>
   </view>

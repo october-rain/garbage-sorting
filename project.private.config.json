@@ -1,0 +1,71 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/dropgame/dropgame",
+          "pathName": "pages/dropgame/dropgame",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/draggame/graggame",
+          "pathName": "pages/draggame/graggame",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/question/question",
+          "pathName": "pages/question/question",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/test/test",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/camera/camera",
+          "pathName": "pages/camera/camera",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/voice/voice",
+          "pathName": "pages/voice/voice",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/developer/developer",
+          "pathName": "pages/developer/developer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/rate/rate",
+          "pathName": "pages/rate/rate",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

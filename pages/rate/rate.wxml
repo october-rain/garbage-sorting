@@ -1,0 +1,8 @@
+<!--pages/rate/rate.wxml-->
+<view class="container">
+  <text class="cuIcon-selection my-icon"></text>
+  <view class="info">
+    <text>你的积分是：<text class="score">{{userRankData.score}}</text></text>
+    <text>你的排名是：<text class="rank">{{userRankData.rank}}/{{userRankData.count}}</text></text>
+  </view>
+</view>

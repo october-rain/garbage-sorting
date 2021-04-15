@@ -9,6 +9,7 @@
   width: 80%;
   height: 100rpx;
   margin-top: 150rpx;
+  margin-bottom: 20rpx;
   border-radius: 20rpx;
   box-shadow: 0rpx 0rpx 10rpx 2rpx rgba(0, 0, 0, 0.1);
   background-color: #fff;
@@ -93,7 +94,7 @@ view {
 }
 
 .cu-btn{
-  margin-top: 30rpx;
+  margin-top: 44rpx;
   /* border: 1rpx solid red; */
   border-radius: 30rpx;
   box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);

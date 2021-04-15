@@ -1,0 +1,35 @@
+/* pages/rate/rate.wxss */
+.container {
+  margin: 0 auto;
+  width: 70vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.my-icon{
+  font-size: 380rpx;
+  color: #524a68;
+}
+
+.info{
+  font-size: 40rpx;
+  font-weight: 500;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.score {
+  font-size: 50rpx;
+  vertical-align: baseline;
+}
+
+.rank {
+  font-size: 50rpx;
+  vertical-align: baseline;
+}

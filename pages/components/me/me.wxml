@@ -1,7 +1,7 @@
 <!--pages/me/me.wxml-->
 <view class="margin-xl shadow-lg">
   <view class="flex justify-center">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"
+    <button wx:if="{{!hasUserInfo && canIUse}}" bind:tap="getUserInfo"
       class='login cu-btn round bg-green shadow'> 获取头像昵称 </button>
     <view wx:else class="show">
       <view class='basic-info text-center bg-white radius shadow'>
@@ -12,15 +12,15 @@
           <view class="socre">积分：{{score}}</view>
         </view>
       </view>
-      <button class="cu-btn lg" bind:tap="selectAnswer">
+      <button class="cu-btn lg" bind:tap="goToRank">
         <text class="my-icon cuIcon-selection text-blue"></text>
         <text>我的排名</text>
       </button>
-      <button class="cu-btn lg" bind:tap="selectAnswer" open-type='feedback'>
+      <button class="cu-btn lg" open-type='feedback'>
         <text class="my-icon cuIcon-message text-orange"></text>
         <text>意见反馈</text>
       </button>
-      <button class="cu-btn lg" bind:tap="selectAnswer">
+      <button class="cu-btn lg" bind:tap="goToDeveloper">
         <text class="my-icon cuIcon-link text-red"></text>
         <text>开发信息</text>
       </button>

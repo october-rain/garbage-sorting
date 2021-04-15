@@ -1,7 +1,8 @@
 function ajax(name, data) {
   return new Promise((resovle, reject) => {
     wx.request({
-      url: 'https://ruangong.tian999.top/' + name,
+      // url: 'https://ruangong.tian999.top/' + name,
+      url: 'http://192.168.1.102:8000/' + name,
       method: 'GET',
       // 使用data传递参数，只能用get方法
       data: data,
@@ -37,12 +38,10 @@ function ajaxPOST(baseUrl, data, name) {
 
 function formatData(data) {
   const nameData = []
-  for (let i = 1; i < data.length; i++) {
+  for (let i = 0; i < data.length; i++) {
     const arr = data[i].garbage_list
-    nameData[i - 1] = arr.slice(0, arr.length / 3)
+    nameData[i] = arr.slice(0, arr.length / 2)
   }
-  // const arr = data[0].garbage_list
-  // nameData[26] = arr.slice(0, arr.length / 4)
   console.log(nameData)
   return nameData
 }
