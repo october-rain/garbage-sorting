@@ -63,6 +63,12 @@
         {
           "name": "pages/rate/rate",
           "pathName": "pages/rate/rate",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/rank/rank",
+          "pathName": "pages/rank/rank",
           "scene": null
         }
       ]

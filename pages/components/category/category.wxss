@@ -1,8 +1,6 @@
-l-index-list{
+/* l-index-list{
   transition: 0.3s;
-}
-
-/*联系人*/
+} */
 
 .l-selected-class{
   background-color: #06c05f !important;

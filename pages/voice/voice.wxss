@@ -1,4 +1,9 @@
 /* pages/voice/voice.wxss */
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
 .container {
   display: flex;
   flex-direction: column;

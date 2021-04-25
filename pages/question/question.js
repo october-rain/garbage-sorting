@@ -4,7 +4,7 @@ import {
   ajaxPOST
 } from '../../utils/util'
 const app = getApp()
-const data = wx.getStorageSync('all_garbage')
+// const data = wx.getStorageSync('all_garbage')
 const map = new Map()
 map.set('1', '可回收垃圾')
 map.set('2', '干垃圾')
@@ -24,6 +24,7 @@ Page({
   },
 
   createGarbage() {
+    const data = wx.getStorageSync('all_garbage')
     const garbage = getRandomGarbage(data)
     this.data.garbage = garbage
     this.setData({
@@ -82,28 +83,24 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   async onHide() {
-    console.log('hide')
     const data = {
       openid: app.userData.openid,
       score: this.data.score
     }
     app.userData.score = this.data.score
-    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
-    console.log(res)
+    await ajaxPOST(app.gUrl, data, 'score_garbage/')
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   async onUnload() {
-    console.log('unload')
     const data = {
       openid: app.userData.openid,
       score: this.data.score
     }
     app.userData.score = this.data.score
-    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
-    console.log(res)
+    await ajaxPOST(app.gUrl, data, 'score_garbage/')
   },
 
   /**

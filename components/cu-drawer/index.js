@@ -1,4 +1,5 @@
 // components/cu-tabbar/drawer/index.js
+const app = getApp()
 Component({
   options: {
     addGlobalClass: true,
@@ -24,7 +25,8 @@ Component({
     noteCount: 1,
     _note: '',
     notes: ['这里可以记录一些学习成果，如下所示','示例：干电池属于干垃圾'],
-    dialogShow: false
+    dialogShow: false,
+    isShow: false
   },
 
   /**
@@ -53,6 +55,12 @@ Component({
       })
     },
     addNote(){
+      if(!app.globalData.userInfo) {
+        this.setData({
+          isShow: true 
+        })
+        return
+      }
       this.setData({
         dialogShow: true
       })
@@ -70,9 +78,6 @@ Component({
         })
       }
     },
-    // inputValue(e){
-    //   console.log(e)
-    // },
     inputBlur(e){
       console.log(e.detail.value)
       this.data.inputValue = e.detail.value
@@ -80,13 +85,48 @@ Component({
       // this.data.notes.push(e.detail.value)
     },
     onConfirmTap(e){
+      if(!this.data.inputValue) return 
       this.data.notes.push(this.data.inputValue)
       this.setData({
         notes: this.data.notes 
       })
     },
-    // 取消按钮
-    onCancelTap() {
-    },
+    onConfirmTapLogin(){
+      wx.getUserProfile({
+        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        success: (res) => {
+          console.log(res)
+          app.globalData.userInfo = res.userInfo
+          this.setData({
+            userInfo: res.userInfo,
+            hasUserInfo: true
+          })
+          wx.setStorage({
+            data: res.userInfo,
+            key: 'userInfo',
+          })
+          console.log(app.userData.User)
+          if(!app.userData.User) {
+            const registerData = {
+              openid: app.userData.openid,
+              name: res.userInfo.nickName,
+              url: res.userInfo.avatarUrl
+            }
+            wx.request({
+              url: app.gUrl + 'set_user/',
+              data: registerData,
+              method: 'POST',
+              header: {
+                "Content-Type": "application/x-www-form-urlencoded"
+              },
+              success: res => {
+                console.log(res)
+              }
+            })
+          }
+        }
+      })
+    
+    }
   }
 })

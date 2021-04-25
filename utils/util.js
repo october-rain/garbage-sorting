@@ -1,8 +1,8 @@
 function ajax(name, data) {
   return new Promise((resovle, reject) => {
     wx.request({
-      // url: 'https://ruangong.tian999.top/' + name,
-      url: 'http://192.168.1.102:8000/' + name,
+      url: 'https://ruangong.tian999.top/' + name,
+      // url: 'http://192.168.1.102:8000/' + name,
       method: 'GET',
       // 使用data传递参数，只能用get方法
       data: data,
@@ -13,8 +13,8 @@ function ajax(name, data) {
 }
 
 function ajaxPOST(baseUrl, data, name) {
-  console.log(data)
-  console.log(JSON.stringify(data))
+  // console.log(data)
+  // console.log(JSON.stringify(data))
   return new Promise((resovle, reject) => {
     wx.request({
       url: baseUrl + name,
@@ -23,15 +23,8 @@ function ajaxPOST(baseUrl, data, name) {
         "Content-Type": "application/x-www-form-urlencoded"
       },
       data: data,
-      // data: {
-      //   message: data
-      // },
       success: resovle, // resolve 会让success的返回值 res return
       fail: reject
-      // success: function(msg) {
-      //   console.log(msg)
-      //   resovle()
-      // }
     })
   })
 }
@@ -42,7 +35,7 @@ function formatData(data) {
     const arr = data[i].garbage_list
     nameData[i] = arr.slice(0, arr.length / 2)
   }
-  console.log(nameData)
+  // console.log(nameData)
   return nameData
 }
 

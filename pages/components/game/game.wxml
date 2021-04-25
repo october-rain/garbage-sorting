@@ -1,5 +1,4 @@
 <!--pages/game/game.wxml-->
-
 <view class="container">
   <image mode="aspectFit" class="game-image" src="/image/game/couple-sitting-living-room-playing-video-games-game-console-flat-illustration_94753-2458.jpg"></image>
   <button data-id="1" class="cu-btn block lg bg-blue" bind:tap="onGoToGame">
@@ -15,3 +14,16 @@
     <text>抢答时刻</text>
   </button>
 </view>
+
+<l-dialog
+    show="{{isShow}}"
+    type="confirm"
+    show-title="{{false}}"
+    content="玩游戏前，请先登录哦～"
+    cancel-text="取消"
+    cancel-color="#999"
+    confirm-text="登录"
+    confirm-color="#3683d6"
+    bind:linconfirm="onConfirmTap"
+  >
+</l-dialog>

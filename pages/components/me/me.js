@@ -23,10 +23,8 @@ Component({
   },
   lifetimes: {
     attached(){
-      // console.log("me")
-      console.log(app.globalData)
+      // console.log(app.globalData)
       if (app.globalData.userInfo) {
-        // console.log('xx', app.globalData.userInfo)
         this.setData({
           userInfo: app.globalData.userInfo,
           hasUserInfo: true
@@ -59,16 +57,9 @@ Component({
   },
   methods: {
     getUserInfo: function(e) {
-      // console.log(e)
-      // app.globalData.userInfo = e.detail.userInfo
-      // this.setData({
-      //   userInfo: e.detail.userInfo,
-      //   hasUserInfo: true
-      // })
       wx.getUserProfile({
-        desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+        desc: '用于记录个人的笔记积分等信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
         success: (res) => {
-          console.log(res)
           app.globalData.userInfo = res.userInfo
           this.setData({
             userInfo: res.userInfo,
@@ -78,7 +69,6 @@ Component({
             data: res.userInfo,
             key: 'userInfo',
           })
-          console.log(app.userData.User)
           if(!app.userData.User) {
             const registerData = {
               openid: app.userData.openid,
@@ -99,6 +89,7 @@ Component({
           }
         }
       })
+    
     },
     goToRank: function(){
       wx.navigateTo({

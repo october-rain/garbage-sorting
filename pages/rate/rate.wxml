@@ -5,4 +5,7 @@
     <text>你的积分是：<text class="score">{{userRankData.score}}</text></text>
     <text>你的排名是：<text class="rank">{{userRankData.rank}}/{{userRankData.count}}</text></text>
   </view>
+  <button class="cu-btn block lg bg-blue" bind:tap="onGoToRank"> 
+    <text>查看排行榜</text>
+  </button>
 </view>

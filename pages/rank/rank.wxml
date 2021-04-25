@@ -1,0 +1,23 @@
+<!--pages/rank/rank.wxml-->
+<view class="cu-bar bg-white solid-bottom">
+  <view class="action">
+    <text class="cuIcon-title text-orange "></text> 排名列表
+  </view>
+</view>
+<view class="cu-list menu-avatar">
+  <view class="cu-item" wx:for="{{rank}}" wx:key="index">
+    <view class="cu-avatar radius lg" style="background-image:url({{item.url}});"></view>
+    <view class="content">
+      <view class="text-blue">
+        <text class="text-cut">{{item.username}}</text>
+      </view>
+      <view class="text-gray">
+        <text class="text-cut">{{item.score}}分</text>
+      </view>
+    </view>
+    
+    <view class="action">
+      <view class="text-grey">No.{{item.rank}}</view>
+    </view>
+  </view>
+</view>

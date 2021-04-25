@@ -3,7 +3,7 @@ import {
   getRandomGarbage,
   ajaxPOST, ajax
 } from '../../utils/util'
-const data = wx.getStorageSync('all_garbage')
+// const data = wx.getStorageSync('all_garbage')
 const app = getApp()
 // const query = wx.createSelectorQuery()
 let interval
@@ -26,8 +26,6 @@ Page({
     this.setData({
       gameControl: this.data.gameControl ? false : true
     })
-    // debugger
-    console.log('onControlGameStart')
     this.cycleExecute()
   },
   onControlGameEnd() {
@@ -56,8 +54,9 @@ Page({
     // })
   },
   createGarbage() {
+    const data = wx.getStorageSync('all_garbage')
     const garbage = getRandomGarbage(data)
-    console.log(garbage)
+    // console.log(garbage)
     this.data._position = 2
     this.data._garbageClass = garbage.classification_name
     this.setData({
@@ -80,16 +79,13 @@ Page({
     }
   },
   cycleExecute() {
-    console.log('cycleExecute')
     this.createGarbage()
-    console.log('createGarbage')
     // let garbage
     interval = setInterval(() => {
       if (this.data.garbageTop > 80) {
         let gclass = this.data._garbageClass
-        console.log(gclass, this.calScore())
+        // console.log(gclass, this.calScore())
         if (gclass === this.calScore()) {
-
           this.setData({
             score: this.data.score + 2,
             toastShow: true,
@@ -138,22 +134,18 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   async onHide() {
-    console.log('hide')
     const data = {openid: app.userData.openid, score: this.data.score}
     app.userData.score = this.data.score
-    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
-    console.log(res)
+    await ajaxPOST(app.gUrl, data, 'score_garbage/')
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   async onUnload() {
-    console.log('unload')
     const data = {openid: app.userData.openid, score: this.data.score}
     app.userData.score = this.data.score
-    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
-    console.log(res)
+    await ajaxPOST(app.gUrl, data, 'score_garbage/')
   },
 
   /**

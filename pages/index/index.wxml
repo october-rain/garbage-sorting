@@ -77,3 +77,16 @@
     </view>
   </view>
 </l-transition>
+
+<l-dialog
+    show="{{isShow}}"
+    type="confirm"
+    show-title="{{false}}"
+    content="识别垃圾前，请先登录哦～"
+    cancel-text="取消"
+    cancel-color="#999"
+    confirm-text="登录"
+    confirm-color="#3683d6"
+    bind:linconfirm="onConfirmTap"
+  >
+</l-dialog>

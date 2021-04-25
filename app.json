@@ -7,7 +7,8 @@
     "pages/camera/camera",
     "pages/voice/voice",
     "pages/rate/rate",
-    "pages/developer/developer"
+    "pages/developer/developer",
+    "pages/rank/rank"
   ],
   "window": {
     "backgroundTextStyle": "light",

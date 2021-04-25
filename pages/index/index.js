@@ -20,14 +20,13 @@ Page({
     },
     userScore: 100,
     LargeSearchBox: false,
-    hotShow: true 
+    hotShow: true ,
+    isShow: false
   },
   async onLoad(options) {
-    console.log('load')
     let res
     if (!wx.getStorageSync('all_garbage')) {
       res = await ajax('getAllgarbage/')
-      console.log(res)
       res = formatData(res.data)
       // res = res.data
       // console.log(res)
@@ -51,7 +50,7 @@ Page({
     } else {
       app.checkLoginReadyCallback = res => {
         //登陆成功后自己希望执行的，和上面一样
-        console.log(app.userData)
+        // console.log(app.userData)
         that.setData({
           userScore: app.userData.score
         })
@@ -60,7 +59,6 @@ Page({
 
   },
   onShow() {
-    console.log('show')
     let that = this;
     //判断onLaunch是否执行完毕
     if (app.userData) {
@@ -71,7 +69,7 @@ Page({
     } else {
       app.checkLoginReadyCallback = res => {
         //登陆成功后自己希望执行的，和上面一样
-        console.log(app.userData)
+        // console.log(app.userData)
         that.setData({
           userScore: app.userData.score,
           popupShow: false
@@ -99,6 +97,12 @@ Page({
     })
   },
   onShowPopupTap(e) {
+    if(!app.globalData.userInfo) {
+      this.setData({
+        isShow: true 
+      })
+      return
+    }
     this.setData({
       popupShow: true
     })
@@ -122,7 +126,7 @@ Page({
       message: e.detail.value
     }
     let res = await ajaxPOST(app.gUrl, data, 'findgarbage/')
-    console.log(res)
+    // console.log(res)
     this.setData({
       hotShow:false,
       searchData: res.data
@@ -171,4 +175,38 @@ Page({
       url: '/pages/voice/voice',
     })
   },
+  onConfirmTap(){
+    wx.getUserProfile({
+      desc: '用于记录个人的笔记积分等信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        app.globalData.userInfo = res.userInfo
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+        wx.setStorage({
+          data: res.userInfo,
+          key: 'userInfo',
+        })
+        if(!app.userData.User) {
+          const registerData = {
+            openid: app.userData.openid,
+            name: res.userInfo.nickName,
+            url: res.userInfo.avatarUrl
+          }
+          wx.request({
+            url: app.gUrl + 'set_user/',
+            data: registerData,
+            method: 'POST',
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            success: res => {
+              console.log(res)
+            }
+          })
+        }
+      }
+    })
+  }
 })

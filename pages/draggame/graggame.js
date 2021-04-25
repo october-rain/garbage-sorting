@@ -2,7 +2,7 @@
 import {
   getRandomGarbage, ajaxPOST
 } from '../../utils/util'
-const data = wx.getStorageSync('all_garbage')
+// const data = wx.getStorageSync('all_garbage')
 const app = getApp()
 const windowHeight = app.globalData.windowHeight
 const windowWidth = app.globalData.windowWidth
@@ -72,24 +72,21 @@ Page({
   calScore(x, y){
     // console.log(x, y, windowWidth * 0.35, windowHeight * 0.15)
     if(x < windowWidth * 0.38 && y < windowHeight * 0.25){
-      console.log('可回收')
       return "可回收垃圾"
     } else if (x > windowWidth * 0.62 && y < windowHeight * 0.25) {
-      console.log('有害')
       return "有害垃圾" 
     } else if (x < windowWidth * 0.38 && y > windowHeight * 0.75) {
-      console.log('湿')
       return "湿垃圾"
     } else if( x > windowWidth * 0.62 && y > windowHeight * 0.75) {
-      console.log('干')
       return "干垃圾" 
     } else {
       return false
     }
   },
   createGarbage() {
+    const data = wx.getStorageSync('all_garbage')
     const garbage = getRandomGarbage(data)
-    console.log(garbage)
+    // console.log(garbage)
     this.data._garbageClass = garbage.classification_name
     this.setData({
       garbageName: garbage.garbage_name,
@@ -100,7 +97,7 @@ Page({
    */
   onLoad: function (options) {
     this.createGarbage()
-    console.log('load', app.userData.score)
+    // console.log('load', app.userData.score)
     this.setData({
       score: app.userData.score
     })
@@ -124,22 +121,18 @@ Page({
    * 生命周期函数--监听页面隐藏
    */
   async onHide() {
-    console.log('hide')
     const data = {openid: app.userData.openid, score: this.data.score}
     app.userData.score = this.data.score
-    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
-    console.log(res)
+    await ajaxPOST(app.gUrl, data, 'score_garbage/')
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   async onUnload() {
-    console.log('unload')
     const data = {openid: app.userData.openid, score: this.data.score}
     app.userData.score = this.data.score
-    const res = await ajaxPOST(app.gUrl, data, 'score_garbage/')
-    console.log(res)
+    await ajaxPOST(app.gUrl, data, 'score_garbage/')
   },
 
   /**

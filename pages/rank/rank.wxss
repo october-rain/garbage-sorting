@@ -1,0 +1,12 @@
+/* pages/rank/rank.wxss */
+page {
+  height: 100%;
+  overflow: hidden;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 130rpx 0 20rpx;
+}

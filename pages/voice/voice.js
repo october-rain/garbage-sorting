@@ -39,19 +39,6 @@ Page({
         audioSrc: res.tempFilePath,
         fileSize: res.fileSize
       })
-      console.log(res.tempFilePath)
-
-      // wx.getFileSystemManager().readFile({
-      //   filePath: res.tempFilePath, //选择语音返回的相对路径
-      //   encoding: 'base64', //编码格式
-      //   success: res => { //成功的回调
-      //     console.log(res)
-      //     // console.log(that.data.fileSize)
-      //     const data = {bs: res.data ,filesize: that.data.fileSize}
-      //     const result = ajaxPOST('http://192.168.1.100:8000/', data, 'yuyin_garbage/')
-      //     console.log(result)
-      //   }
-      // })
       // console.log(res.tempFilePath)
       wx.uploadFile({
         url: app.gUrl + 'yuyin_garbage/',
@@ -59,7 +46,6 @@ Page({
         name: 'filename',
         success(res) {
           let data = JSON.parse(res.data)
-          console.log(data)
           const message = data.message
           data = data.data 
           const len = data.length
@@ -78,37 +64,6 @@ Page({
               isRecord: false
             })
           }
-          // wx.request({
-          //   url: app.gUrl + 'findgarbage/',
-          //   method: 'POST',
-          //   header: {
-          //     "Content-Type": "application/x-www-form-urlencoded"
-          //   },
-          //   data: data,
-          //   success: function(e){
-          //     console.log(e)
-          // const len = e.data.length
-          // if(len < 1) {
-          //   that.setData({
-          //     voiceMsg: "没找到！换个词试试"
-          //   })
-          // } else if(e.data.length > 10) {
-          //   that.setData({
-          //     voiceMsg: "没听清哦！"
-          //   })
-          // } else {
-          //   that.setData({
-          //     garbageMsg: e.data,
-          //     voiceMsg: data.message,
-          //     isRecord: false
-          //   })
-          // }
-          //   },
-          //   fail: function(e){
-          //     console.log(e)
-          //   }
-          // })
-
         }
       })
     });

@@ -4,11 +4,6 @@
     l-tip-text-class="l-tip-text-class" bindchangeScrollTop="changeScrollTop">
     <scroll-view scroll-y style="height: 84vh;" bindscroll="scroll" scroll-top="{{toView}}">
       <block wx:for="{{sideBarData.length}}" wx:key="index" wx:for-index="anchorIndex">
-      <!-- 一{{anchorIndex}}
-      二{{nameData[anchorIndex]}}
-      三{{nameData[anchorIndex].length}}
-
-      四{{nameData[anchorIndex].garbage_name}} -->
         <l-index-anchor />
         <block wx:for="{{nameData[anchorIndex]}}" wx:key="index" wx:for-index="itemIndex">
           <view class="garbage-item">

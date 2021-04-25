@@ -20,3 +20,16 @@
 <l-dialog l-class="dialog" show="{{dialogShow}}" type="confirm" title-text="记录你的学习吧！" cancel-color="#999" confirm-color="#3683d6" bind:lincancel="onCancelTap" bind:linconfirm="onConfirmTap">
   <l-input placeholder="干电池属于干垃圾" hide-label="{{true}}" showRow="{{false}}"  bind:linblur="inputBlur" clear/>
 </l-dialog>
+
+<l-dialog
+    show="{{isShow}}"
+    type="confirm"
+    show-title="{{false}}"
+    content="添加笔记前，请先登录哦～"
+    cancel-text="取消"
+    cancel-color="#999"
+    confirm-text="登录"
+    confirm-color="#3683d6"
+    bind:linconfirm="onConfirmTapLogin"
+  >
+</l-dialog>

@@ -175,10 +175,6 @@ page {
   border: 2rpx solid #60d0c0;
 }
 
-.search-datas {
-
-}
-
 .search-data {
   /* background-color: #eee; */
   /* border: 1rpx solid red; */
