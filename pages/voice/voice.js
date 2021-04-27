@@ -18,6 +18,7 @@ Page({
       btnHeight: 200,
       btnWidth: 200
     })
+    wx.vibrateShort()
     recorderManager.start({
       duration: 60000,
       sampleRate: 16000,
@@ -69,6 +70,7 @@ Page({
     });
   },
   TapVoiceAgain() {
+    wx.vibrateShort()
     this.setData({
       isRecord: true,
       // voiceMsg: "识别结果"

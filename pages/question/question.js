@@ -32,6 +32,7 @@ Page({
     })
   },
   selectAnswer(e) {
+    wx.vibrateShort()
     const res = map.get(e.currentTarget.dataset.id)
     if (res === this.data.garbage.classification_name) {
       this.setData({
@@ -53,6 +54,7 @@ Page({
     }, 200)
   },
   skip() {
+    wx.vibrateShort()
     this.createGarbage()
   },
   /**
@@ -63,20 +65,6 @@ Page({
     this.setData({
       score: app.userData.score
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
   },
 
   /**
@@ -102,25 +90,4 @@ Page({
     app.userData.score = this.data.score
     await ajaxPOST(app.gUrl, data, 'score_garbage/')
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

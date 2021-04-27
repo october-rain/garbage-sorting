@@ -12,6 +12,7 @@ Component({
   },
   methods: {
     onGoToGame(e){
+      wx.vibrateShort()
       if(!app.globalData.userInfo) {
         this.setData({
           isShow: true 

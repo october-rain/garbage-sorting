@@ -23,6 +23,7 @@ Page({
     _position: 2
   },
   onControlGameStart() {
+    wx.vibrateShort()
     this.setData({
       gameControl: this.data.gameControl ? false : true
     })
@@ -36,6 +37,7 @@ Page({
     })
   },
   onControlGameLeft() {
+    wx.vibrateShort()
     if (this.data._position > 1) {
       this.data._position -= 1
       this.setData({
@@ -45,6 +47,7 @@ Page({
     // })
   },
   onControlGameRight() {
+    wx.vibrateShort()
     if (this.data._position < 4) {
       this.data._position += 1
       this.setData({
@@ -83,6 +86,7 @@ Page({
     // let garbage
     interval = setInterval(() => {
       if (this.data.garbageTop > 80) {
+        wx.vibrateShort()
         let gclass = this.data._garbageClass
         // console.log(gclass, this.calScore())
         if (gclass === this.calScore()) {
@@ -117,23 +121,10 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
    * 生命周期函数--监听页面隐藏
    */
   async onHide() {
+    this.onControlGameEnd()
     const data = {openid: app.userData.openid, score: this.data.score}
     app.userData.score = this.data.score
     await ajaxPOST(app.gUrl, data, 'score_garbage/')
@@ -143,29 +134,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   async onUnload() {
+    this.onControlGameEnd()
     const data = {openid: app.userData.openid, score: this.data.score}
     app.userData.score = this.data.score
     await ajaxPOST(app.gUrl, data, 'score_garbage/')
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

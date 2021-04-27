@@ -55,6 +55,7 @@ Component({
       })
     },
     addNote(){
+      wx.vibrateShort()
       if(!app.globalData.userInfo) {
         this.setData({
           isShow: true 

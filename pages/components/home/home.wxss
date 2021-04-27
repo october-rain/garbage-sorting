@@ -1,3 +1,7 @@
+.home {
+  z-index: 1000;
+}
+
 .last {
   padding-bottom: 120rpx;
 }

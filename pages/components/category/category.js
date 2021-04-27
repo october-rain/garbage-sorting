@@ -24,10 +24,10 @@ Component({
       });
     },
     changeScrollTop(e) {
-      // console.log(e)
       this.setData({
-        toView: e.detail.scrollPageToLocation - 60
+        toView: e.detail.scrollPageToLocation - 80
       })
-    }
+    },
+
   },
 })

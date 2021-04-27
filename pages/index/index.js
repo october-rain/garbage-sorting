@@ -78,6 +78,7 @@ Page({
     }
   },
   NavChange(e) {
+    wx.vibrateShort()
     this.setData({
       PageCur: e.currentTarget.dataset.cur
     })
@@ -92,11 +93,13 @@ Page({
   },
   changeDrawer(e) {
     // console.log(e.detail.modal)
+    wx.vibrateShort()
     this.setData({
       modalName: e.detail.modal
     })
   },
   onShowPopupTap(e) {
+    wx.vibrateShort()
     if(!app.globalData.userInfo) {
       this.setData({
         isShow: true 
@@ -109,6 +112,7 @@ Page({
 
   },
   searchFocus(e) {
+    wx.vibrateShort()
     this.setData({
       LargeSearchBox: true,
       popupShow: false,
@@ -138,6 +142,7 @@ Page({
     })
   },
   tapCamera() {
+    wx.vibrateShort()
     this.setData({
       cBtn: {
         width: 110,
@@ -146,6 +151,7 @@ Page({
     })
   },
   tapVoice() {
+    wx.vibrateShort()
     this.setData({
       vBtn: {
         width: 110,

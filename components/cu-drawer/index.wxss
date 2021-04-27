@@ -24,7 +24,7 @@
 
 .DrawerClose {
   position: absolute;
-  width: 40vw;
+  width: 0vw;
   height: 100vh;
   right: 0;
   top: 0;

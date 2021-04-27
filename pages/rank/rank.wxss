@@ -1,8 +1,4 @@
 /* pages/rank/rank.wxss */
-page {
-  height: 100%;
-  overflow: hidden;
-}
 
 .content {
   display: flex;

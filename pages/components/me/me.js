@@ -92,11 +92,16 @@ Component({
     
     },
     goToRank: function(){
+      wx.vibrateShort()
       wx.navigateTo({
         url: '/pages/rate/rate',
       })
     },
+    tapFeedback(){
+      wx.vibrateShort()
+    },
     goToDeveloper(){
+      wx.vibrateShort()
       wx.navigateTo({
         url: '/pages/developer/developer',
       })

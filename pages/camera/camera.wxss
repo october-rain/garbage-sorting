@@ -1,9 +1,4 @@
 /* pages/camera/camera.wxss */
-page {
-  height: 100%;
-  overflow: hidden;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -17,7 +12,6 @@ page {
 }
 
 .res-container {
-  /* border: 1px solid red; */
   width: 80vw;
 }
 
@@ -41,7 +35,6 @@ page {
 .cu-btn{
   margin-top: 30rpx;
   margin-bottom: 40rpx;
-  /* border: 1rpx solid red; */
   border-radius: 30rpx;
   box-shadow:1rpx 1rpx 12rpx 0 rgba(0,0,0,.5);
 }

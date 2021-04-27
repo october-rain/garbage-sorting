@@ -1,4 +1,4 @@
-<view>
+<view class="home">
   <scroll-view scroll-y style="width: 100vw;" bind:scroll="scroll">
     <swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true"
       autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3"
@@ -28,7 +28,7 @@
       <view class="cu-time">可回收</view>
       <view class="cu-item cur cuIcon-noticefill">
         <view class="content bg-theme shadow-blur">
-          可收物会被投入流动回收车、可回收物置放容器
+          可回收物会被投入流动回收车、可回收物置放容器
         </view>
       </view>
       <view class="cu-item text-red cuIcon-attentionforbidfill">

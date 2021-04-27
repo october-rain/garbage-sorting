@@ -1,9 +1,4 @@
 /* pages/voice/voice.wxss */
-page {
-  height: 100%;
-  overflow: hidden;
-}
-
 .container {
   display: flex;
   flex-direction: column;
@@ -49,12 +44,6 @@ view {
   background-color: rgb(118, 218, 255);
   border-radius: 50%;
 } 
-
-/* .btn-container:hover,
-.wave:hover{
-  width: 200rpx;
-  height: 200rpx;
-} */
 
 .wave::before,
 .wave::after{
