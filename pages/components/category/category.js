@@ -28,6 +28,12 @@ Component({
         toView: e.detail.scrollPageToLocation - 80
       })
     },
-
+    onGoToDetail(e) {
+      wx.vibrateShort()
+      const id = e.currentTarget.dataset.item.garbage_id
+      wx.navigateTo({
+        url: '/pages/detail/detail?id=' + id,
+      })
+    }
   },
 })

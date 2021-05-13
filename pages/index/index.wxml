@@ -59,34 +59,38 @@
   <!-- <l-status show type="cart" full-screen="{{false}}" bind:lintap="closeCase" data-name="1"/> -->
   <l-search-bar bind:linconfirm="searchConfirm" bind:lincancel="searchBlur" bind:linclear="searchClear"
     l-container-class="ex-search-bar" focus="{{LargeSearchBox}}" />
-  <view wx:if="{{hotShow}}" class="hot-search">
-    <text class="harm">干电池</text>
-    <text class="recycle">塑料瓶</text>
-    <text class="recycle">太阳镜</text>
-    <text class="dry">外卖盒</text>
-    <text class="wet">八宝粥</text>
-    <text class="wet">果皮</text>
-    <text class="recycle">废纸</text>
-    <text class="wet">菜叶</text>
-    <text class="recycle">耳钉</text>
+  <view wx:if="{{hotShow}}">
+    <view class="recent-title">最近搜索</view>
+    <view class="recent-search">
+      <text bind:tap="onGoToDetail" data-id="{{item.garbage_id}}" wx:for="{{recentData}}" wx:key="index" class="{{item.classification_name == '可回收垃圾' ? 'bg-recycle' : ''}} {{item.classification_name == '干垃圾' ? 'bg-dry' : ''}} {{item.classification_name == '湿垃圾' ? 'bg-wet' : ''}} {{item.classification_name == '有害垃圾' ? 'bg-harm' : ''}}">{{item.garbage_name}}
+      </text>
+    </view>
+
+  </view>
+  <view wx:if="{{hotShow}}">
+    <view class="hot-title">热门搜索</view>
+    <view class="hot-search">
+      <text bind:tap="onGoToDetail" data-id="{{2866}}" class="dry">太阳镜</text>
+      <text bind:tap="onGoToDetail" data-id="{{919}}" class="harm">干电池</text>
+      <text bind:tap="onGoToDetail" data-id="{{3597}}" class="recycle">硬质塑料瓶</text>
+      <text bind:tap="onGoToDetail" data-id="{{3028}}" class="dry">外卖盒</text>
+      <text bind:tap="onGoToDetail" data-id="{{51}}" class="wet">八宝粥</text>
+      <text bind:tap="onGoToDetail" data-id="{{1066}}" class="wet">果皮</text>
+      <text bind:tap="onGoToDetail" data-id="{{872}}" class="recycle">废纸</text>
+      <text bind:tap="onGoToDetail" data-id="{{306}}" class="wet">菜叶</text>
+      <text bind:tap="onGoToDetail" data-id="{{743}}" class="recycle">耳钉</text>
+    </view>
+
   </view>
   <view wx:else class="search-datas">
     <view wx:for="{{searchData}}" wx:key="index"
       class="search-data {{item.classification_name == '可回收垃圾' ? 'bg-recycle' : ''}} {{item.classification_name == '干垃圾' ? 'bg-dry' : ''}} {{item.classification_name == '湿垃圾' ? 'bg-wet' : ''}} {{item.classification_name == '有害垃圾' ? 'bg-harm' : ''}}">
-      {{item.garbage_name}}
+      <text class="name">{{item.garbage_name}}</text>
+      <text class="classification_name">{{item.classification_name}}</text>
     </view>
   </view>
 </l-transition>
 
-<l-dialog
-    show="{{isShow}}"
-    type="confirm"
-    show-title="{{false}}"
-    content="识别垃圾前，请先登录哦～"
-    cancel-text="取消"
-    cancel-color="#999"
-    confirm-text="登录"
-    confirm-color="#3683d6"
-    bind:linconfirm="onConfirmTap"
-  >
+<l-dialog show="{{isShow}}" type="confirm" show-title="{{false}}" content="识别垃圾前，请先登录哦～" cancel-text="取消"
+  cancel-color="#999" confirm-text="登录" confirm-color="#3683d6" bind:linconfirm="onConfirmTap">
 </l-dialog>

@@ -20,7 +20,7 @@ Page({
     },
     userScore: 100,
     LargeSearchBox: false,
-    hotShow: true ,
+    hotShow: true,
     isShow: false
   },
   async onLoad(options) {
@@ -98,15 +98,21 @@ Page({
       modalName: e.detail.modal
     })
   },
-  onShowPopupTap(e) {
+  async onShowPopupTap(e) {
     wx.vibrateShort()
-    if(!app.globalData.userInfo) {
+    if (!app.globalData.userInfo) {
       this.setData({
-        isShow: true 
+        isShow: true
       })
       return
     }
+    let data = {
+      openid: app.userData.openid
+    }
+    let res = await ajaxPOST(app.gUrl, data, 'recent_search/')
+    // console.log(res.data)
     this.setData({
+      recentData: res.data,
       popupShow: true
     })
 
@@ -118,27 +124,35 @@ Page({
       popupShow: false,
     })
   },
-  searchBlur() {
+  searchBlur(e) {
+    this.searchClear()
     this.setData({
       LargeSearchBox: false,
       popupShow: false,
     })
   },
   async searchConfirm(e) {
-    console.log(e)
+    // console.log(e)
+    // console.log(app.userData.openid)
     const data = {
+      openid: app.userData.openid,
       message: e.detail.value
     }
     let res = await ajaxPOST(app.gUrl, data, 'findgarbage/')
     // console.log(res)
     this.setData({
-      hotShow:false,
+      hotShow: false,
       searchData: res.data
     })
   },
-  searchClear(){
+  async searchClear() {
+    let data = {
+      openid: app.userData.openid
+    }
+    let res = await ajaxPOST(app.gUrl, data, 'recent_search/')
     this.setData({
-      hotShow: true
+      hotShow: true,
+      recentData: res.data
     })
   },
   tapCamera() {
@@ -181,7 +195,7 @@ Page({
       url: '/pages/voice/voice',
     })
   },
-  onConfirmTap(){
+  onConfirmTap() {
     wx.getUserProfile({
       desc: '用于记录个人的笔记积分等信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
@@ -194,7 +208,7 @@ Page({
           data: res.userInfo,
           key: 'userInfo',
         })
-        if(!app.userData.User) {
+        if (!app.userData.User) {
           const registerData = {
             openid: app.userData.openid,
             name: res.userInfo.nickName,
@@ -213,6 +227,25 @@ Page({
           })
         }
       }
+    })
+  },
+  // async onGoToRecentSearch(e){
+  //   const data = {
+  //     openid: app.userData.openid,
+  //     message: e.detail.value
+  //   }
+  //   let res = await ajaxPOST(app.gUrl, data, 'findgarbage/')
+  //   // console.log(res)
+  //   this.setData({
+  //     hotShow: false,
+  //     searchData: res.data
+  //   })
+  // },
+  onGoToDetail(e) {
+    wx.vibrateShort()
+    const id = e.target.dataset.id
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=' + id,
     })
   }
 })

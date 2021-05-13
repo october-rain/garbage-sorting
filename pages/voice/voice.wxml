@@ -8,7 +8,8 @@
   <view wx:else>
     <view wx:for="{{garbageMsg}}" wx:key="index"
       class="search-data {{item.classification_name == '可回收垃圾' ? 'bg-recycle' : ''}} {{item.classification_name == '干垃圾' ? 'bg-dry' : ''}} {{item.classification_name == '湿垃圾' ? 'bg-wet' : ''}} {{item.classification_name == '有害垃圾' ? 'bg-harm' : ''}}">
-      {{item.garbage_name}}
+      <text class="name">{{item.garbage_name}}</text>
+      <text class="classification_name">{{item.classification_name}}</text>
     </view>
     <button class="cu-btn block lg" bind:tap="TapVoiceAgain">
       <text class="my-icon cuIcon-camerafill"></text>

@@ -6,7 +6,7 @@
   </view>
 
   <view class="info">
-    <view class="version">version: 1.0.0</view>
+    <view class="version">version: 1.1.0</view>
     <view class="group">武汉理工 · 物尽团队</view>
   </view>
 </view>

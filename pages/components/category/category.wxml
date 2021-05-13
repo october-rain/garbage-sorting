@@ -6,7 +6,7 @@
       <block wx:for="{{sideBarData.length}}" wx:key="index" wx:for-index="anchorIndex">
         <l-index-anchor />
         <block wx:for="{{nameData[anchorIndex]}}" wx:key="index" wx:for-index="itemIndex">
-          <view class="garbage-item">
+          <view class="garbage-item" bind:tap="onGoToDetail" data-item="{{item}}">
             <view class="garbage-name">{{item.garbage_name}}</view>
             <view class="garbage-tag {{item.classification_name === '可回收垃圾' ? 'garbage1' : ''}} {{item.classification_name === '干垃圾' ? 'garbage2' : ''}} {{item.classification_name === '湿垃圾' ? 'garbage3' : ''}} {{item.classification_name === '有害垃圾' ? 'garbage4' : ''}}">{{item.classification_name}}</view>
           </view>

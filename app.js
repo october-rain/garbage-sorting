@@ -63,6 +63,6 @@ App({
   globalData: {
     userInfo: null
   },
-  // gUrl: 'http://10.139.73.152:8000/',
-  gUrl: 'https://ruangong.tian999.top/'
+  gUrl: 'http://192.168.1.108:8000/',
+  // gUrl: 'https://ruangong.tian999.top/'
 })

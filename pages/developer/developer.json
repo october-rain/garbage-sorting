@@ -2,7 +2,7 @@
   "usingComponents": {},
   "navigationStyle": "default",
   "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#fff",
+  "navigationBarBackgroundColor": "#3eb7ff",
   "navigationBarTitleText": "开发者信息",
   "navigationBarTextStyle": "black"
 }

@@ -1,0 +1,21 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <view class="info">
+    <view class="title">{{garbage}}</view>
+    <view class="classification {{classification === '可回收垃圾' ? 'garbage1' : ''}} {{classification === '干垃圾' ? 'garbage2' : ''}} {{classification === '湿垃圾' ? 'garbage3' : ''}} {{classification === '有害垃圾' ? 'garbage4' : ''}}">{{classification}}</view>
+    <view class="tip">
+      <view class="tip-title">投放提示 :</view>
+      <view class="message">{{message}}</view>
+    </view>
+  </view>
+  <button class="cu-btn block lg bg-blue" bind:tap="tapError">
+    <text class="my-icon cuIcon-question"></text>
+    <text>错误反馈</text>
+  </button>
+</view>
+
+<l-toast
+  show="{{isShow}}"
+  icon="success"
+  title="成功反馈～"
+/>

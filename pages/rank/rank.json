@@ -2,7 +2,7 @@
   "usingComponents": {},
   "navigationStyle": "default",
   "backgroundTextStyle": "light",
-  "navigationBarBackgroundColor": "#fff",
+  "navigationBarBackgroundColor": "#3eb7ff",
   "navigationBarTitleText": "我的排名",
   "navigationBarTextStyle": "black"
 }
